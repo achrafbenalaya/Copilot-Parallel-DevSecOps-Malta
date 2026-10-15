@@ -1,0 +1,14 @@
+{
+  "servers": {
+    "ticketlab": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${workspaceFolder}/mcp/ticket-server.js"]
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"]
+    }
+  }
+}

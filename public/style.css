@@ -1,0 +1,10 @@
+body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; background: #f6f7fb; color: #1d2433; }
+header { display: flex; align-items: baseline; justify-content: space-between; }
+#count { font-weight: 600; color: #4b5bdc; }
+.toolbar { display: flex; gap: .5rem; margin: 1rem 0; }
+.toolbar input { flex: 1; }
+input, select { padding: .5rem; font-size: 1rem; border: 1px solid #cbd2e1; border-radius: 6px; }
+ul { list-style: none; padding: 0; }
+.card { background: #fff; border-left: 5px solid #999; border-radius: 6px; padding: .75rem 1rem; margin-bottom: .5rem; box-shadow: 0 1px 2px #0001; }
+.card.high { border-color: #e5484d; } .card.normal { border-color: #f5a524; } .card.low { border-color: #30a46c; }
+.tag { float: right; margin-left: .4rem; font-size: .75rem; background: #eef0f6; padding: .1rem .5rem; border-radius: 99px; }

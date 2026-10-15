@@ -1,0 +1,8 @@
+[
+  { "id": 1, "title": "Login page is slow", "priority": "high", "status": "open" },
+  { "id": 2, "title": "Printer on floor 3 offline", "priority": "high", "status": "open" },
+  { "id": 3, "title": "Update VPN client", "priority": "normal", "status": "open" },
+  { "id": 4, "title": "New laptop for Sara", "priority": "normal", "status": "closed" },
+  { "id": 5, "title": "Typo on login button", "priority": "low", "status": "open" },
+  { "id": 6, "title": "Change desk plant", "priority": "low", "status": "closed" }
+]

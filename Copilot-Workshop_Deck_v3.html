@@ -1,0 +1,1185 @@
+<title>Hands-On with GitHub Copilot</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/*!
+* reveal.js 5.1.0
+* https://revealjs.com
+* MIT licensed
+*
+* Copyright (C) 2011-2024 Hakim El Hattab, https://hakim.se
+*/
+.reveal .r-stretch,.reveal .stretch{max-width:none;max-height:none}.reveal pre.r-stretch code,.reveal pre.stretch code{height:100%;max-height:100%;box-sizing:border-box}.reveal .r-fit-text{display:inline-block;white-space:nowrap}.reveal .r-stack{display:grid;grid-template-rows:100%}.reveal .r-stack>*{grid-area:1/1;margin:auto}.reveal .r-hstack,.reveal .r-vstack{display:flex}.reveal .r-hstack img,.reveal .r-hstack video,.reveal .r-vstack img,.reveal .r-vstack video{min-width:0;min-height:0;object-fit:contain}.reveal .r-vstack{flex-direction:column;align-items:center;justify-content:center}.reveal .r-hstack{flex-direction:row;align-items:center;justify-content:center}.reveal .items-stretch{align-items:stretch}.reveal .items-start{align-items:flex-start}.reveal .items-center{align-items:center}.reveal .items-end{align-items:flex-end}.reveal .justify-between{justify-content:space-between}.reveal .justify-around{justify-content:space-around}.reveal .justify-start{justify-content:flex-start}.reveal .justify-center{justify-content:center}.reveal .justify-end{justify-content:flex-end}html.reveal-full-page{width:100%;height:100%;height:100vh;height:calc(var(--vh,1vh) * 100);height:100svh;overflow:hidden}.reveal-viewport{height:100%;overflow:hidden;position:relative;line-height:1;margin:0;background-color:#fff;color:#000;--r-controls-spacing:12px}.reveal-viewport:fullscreen{top:0!important;left:0!important;width:100%!important;height:100%!important;transform:none!important}.reveal .fragment{transition:all .2s ease}.reveal .fragment:not(.custom){opacity:0;visibility:hidden;will-change:opacity}.reveal .fragment.visible{opacity:1;visibility:inherit}.reveal .fragment.disabled{transition:none}.reveal .fragment.grow{opacity:1;visibility:inherit}.reveal .fragment.grow.visible{transform:scale(1.3)}.reveal .fragment.shrink{opacity:1;visibility:inherit}.reveal .fragment.shrink.visible{transform:scale(.7)}.reveal .fragment.zoom-in{transform:scale(.1)}.reveal .fragment.zoom-in.visible{transform:none}.reveal .fragment.fade-out{opacity:1;visibility:inherit}.reveal .fragment.fade-out.visible{opacity:0;visibility:hidden}.reveal .fragment.semi-fade-out{opacity:1;visibility:inherit}.reveal .fragment.semi-fade-out.visible{opacity:.5;visibility:inherit}.reveal .fragment.strike{opacity:1;visibility:inherit}.reveal .fragment.strike.visible{text-decoration:line-through}.reveal .fragment.fade-up{transform:translate(0,40px)}.reveal .fragment.fade-up.visible{transform:translate(0,0)}.reveal .fragment.fade-down{transform:translate(0,-40px)}.reveal .fragment.fade-down.visible{transform:translate(0,0)}.reveal .fragment.fade-right{transform:translate(-40px,0)}.reveal .fragment.fade-right.visible{transform:translate(0,0)}.reveal .fragment.fade-left{transform:translate(40px,0)}.reveal .fragment.fade-left.visible{transform:translate(0,0)}.reveal .fragment.current-visible,.reveal .fragment.fade-in-then-out{opacity:0;visibility:hidden}.reveal .fragment.current-visible.current-fragment,.reveal .fragment.fade-in-then-out.current-fragment{opacity:1;visibility:inherit}.reveal .fragment.fade-in-then-semi-out{opacity:0;visibility:hidden}.reveal .fragment.fade-in-then-semi-out.visible{opacity:.5;visibility:inherit}.reveal .fragment.fade-in-then-semi-out.current-fragment{opacity:1;visibility:inherit}.reveal .fragment.highlight-blue,.reveal .fragment.highlight-current-blue,.reveal .fragment.highlight-current-green,.reveal .fragment.highlight-current-red,.reveal .fragment.highlight-green,.reveal .fragment.highlight-red{opacity:1;visibility:inherit}.reveal .fragment.highlight-red.visible{color:#ff2c2d}.reveal .fragment.highlight-green.visible{color:#17ff2e}.reveal .fragment.highlight-blue.visible{color:#1b91ff}.reveal .fragment.highlight-current-red.current-fragment{color:#ff2c2d}.reveal .fragment.highlight-current-green.current-fragment{color:#17ff2e}.reveal .fragment.highlight-current-blue.current-fragment{color:#1b91ff}.reveal:after{content:"";font-style:italic}.reveal iframe{z-index:1}.reveal a{position:relative}@keyframes bounce-right{0%,10%,25%,40%,50%{transform:translateX(0)}20%{transform:translateX(10px)}30%{transform:translateX(-5px)}}@keyframes bounce-left{0%,10%,25%,40%,50%{transform:translateX(0)}20%{transform:translateX(-10px)}30%{transform:translateX(5px)}}@keyframes bounce-down{0%,10%,25%,40%,50%{transform:translateY(0)}20%{transform:translateY(10px)}30%{transform:translateY(-5px)}}.reveal .controls{display:none;position:absolute;top:auto;bottom:var(--r-controls-spacing);right:var(--r-controls-spacing);left:auto;z-index:11;color:#000;pointer-events:none;font-size:10px}.reveal .controls button{position:absolute;padding:0;background-color:transparent;border:0;outline:0;cursor:pointer;color:currentColor;transform:scale(.9999);transition:color .2s ease,opacity .2s ease,transform .2s ease;z-index:2;pointer-events:auto;font-size:inherit;visibility:hidden;opacity:0;-webkit-appearance:none;-webkit-tap-highlight-color:transparent}.reveal .controls .controls-arrow:after,.reveal .controls .controls-arrow:before{content:"";position:absolute;top:0;left:0;width:2.6em;height:.5em;border-radius:.25em;background-color:currentColor;transition:all .15s ease,background-color .8s ease;transform-origin:.2em 50%;will-change:transform}.reveal .controls .controls-arrow{position:relative;width:3.6em;height:3.6em}.reveal .controls .controls-arrow:before{transform:translateX(.5em) translateY(1.55em) rotate(45deg)}.reveal .controls .controls-arrow:after{transform:translateX(.5em) translateY(1.55em) rotate(-45deg)}.reveal .controls .controls-arrow:hover:before{transform:translateX(.5em) translateY(1.55em) rotate(40deg)}.reveal .controls .controls-arrow:hover:after{transform:translateX(.5em) translateY(1.55em) rotate(-40deg)}.reveal .controls .controls-arrow:active:before{transform:translateX(.5em) translateY(1.55em) rotate(36deg)}.reveal .controls .controls-arrow:active:after{transform:translateX(.5em) translateY(1.55em) rotate(-36deg)}.reveal .controls .navigate-left{right:6.4em;bottom:3.2em;transform:translateX(-10px)}.reveal .controls .navigate-left.highlight{animation:bounce-left 2s 50 both ease-out}.reveal .controls .navigate-right{right:0;bottom:3.2em;transform:translateX(10px)}.reveal .controls .navigate-right .controls-arrow{transform:rotate(180deg)}.reveal .controls .navigate-right.highlight{animation:bounce-right 2s 50 both ease-out}.reveal .controls .navigate-up{right:3.2em;bottom:6.4em;transform:translateY(-10px)}.reveal .controls .navigate-up .controls-arrow{transform:rotate(90deg)}.reveal .controls .navigate-down{right:3.2em;bottom:-1.4em;padding-bottom:1.4em;transform:translateY(10px)}.reveal .controls .navigate-down .controls-arrow{transform:rotate(-90deg)}.reveal .controls .navigate-down.highlight{animation:bounce-down 2s 50 both ease-out}.reveal .controls[data-controls-back-arrows=faded] .navigate-up.enabled{opacity:.3}.reveal .controls[data-controls-back-arrows=faded] .navigate-up.enabled:hover{opacity:1}.reveal .controls[data-controls-back-arrows=hidden] .navigate-up.enabled{opacity:0;visibility:hidden}.reveal .controls .enabled{visibility:visible;opacity:.9;cursor:pointer;transform:none}.reveal .controls .enabled.fragmented{opacity:.5}.reveal .controls .enabled.fragmented:hover,.reveal .controls .enabled:hover{opacity:1}.reveal:not(.rtl) .controls[data-controls-back-arrows=faded] .navigate-left.enabled{opacity:.3}.reveal:not(.rtl) .controls[data-controls-back-arrows=faded] .navigate-left.enabled:hover{opacity:1}.reveal:not(.rtl) .controls[data-controls-back-arrows=hidden] .navigate-left.enabled{opacity:0;visibility:hidden}.reveal.rtl .controls[data-controls-back-arrows=faded] .navigate-right.enabled{opacity:.3}.reveal.rtl .controls[data-controls-back-arrows=faded] .navigate-right.enabled:hover{opacity:1}.reveal.rtl .controls[data-controls-back-arrows=hidden] .navigate-right.enabled{opacity:0;visibility:hidden}.reveal[data-navigation-mode=linear].has-horizontal-slides .navigate-down,.reveal[data-navigation-mode=linear].has-horizontal-slides .navigate-up{display:none}.reveal:not(.has-vertical-slides) .controls .navigate-left,.reveal[data-navigation-mode=linear].has-horizontal-slides .navigate-left{bottom:1.4em;right:5.5em}.reveal:not(.has-vertical-slides) .controls .navigate-right,.reveal[data-navigation-mode=linear].has-horizontal-slides .navigate-right{bottom:1.4em;right:.5em}.reveal:not(.has-horizontal-slides) .controls .navigate-up{right:1.4em;bottom:5em}.reveal:not(.has-horizontal-slides) .controls .navigate-down{right:1.4em;bottom:.5em}.reveal.has-dark-background .controls{color:#fff}.reveal.has-light-background .controls{color:#000}.reveal.no-hover .controls .controls-arrow:active:before,.reveal.no-hover .controls .controls-arrow:hover:before{transform:translateX(.5em) translateY(1.55em) rotate(45deg)}.reveal.no-hover .controls .controls-arrow:active:after,.reveal.no-hover .controls .controls-arrow:hover:after{transform:translateX(.5em) translateY(1.55em) rotate(-45deg)}@media screen and (min-width:500px){.reveal-viewport{--r-controls-spacing:0.8em}.reveal .controls[data-controls-layout=edges]{top:0;right:0;bottom:0;left:0}.reveal .controls[data-controls-layout=edges] .navigate-down,.reveal .controls[data-controls-layout=edges] .navigate-left,.reveal .controls[data-controls-layout=edges] .navigate-right,.reveal .controls[data-controls-layout=edges] .navigate-up{bottom:auto;right:auto}.reveal .controls[data-controls-layout=edges] .navigate-left{top:50%;left:var(--r-controls-spacing);margin-top:-1.8em}.reveal .controls[data-controls-layout=edges] .navigate-right{top:50%;right:var(--r-controls-spacing);margin-top:-1.8em}.reveal .controls[data-controls-layout=edges] .navigate-up{top:var(--r-controls-spacing);left:50%;margin-left:-1.8em}.reveal .controls[data-controls-layout=edges] .navigate-down{bottom:calc(var(--r-controls-spacing) - 1.4em + .3em);left:50%;margin-left:-1.8em}}.reveal .progress{position:absolute;display:none;height:3px;width:100%;bottom:0;left:0;z-index:10;background-color:rgba(0,0,0,.2);color:#fff}.reveal .progress:after{content:"";display:block;position:absolute;height:10px;width:100%;top:-10px}.reveal .progress span{display:block;height:100%;width:100%;background-color:currentColor;transition:transform .8s cubic-bezier(.26,.86,.44,.985);transform-origin:0 0;transform:scaleX(0)}.reveal .slide-number{position:absolute;display:block;right:8px;bottom:8px;z-index:31;font-family:Helvetica,sans-serif;font-size:12px;line-height:1;color:#fff;background-color:rgba(0,0,0,.4);padding:5px}.reveal .slide-number a{color:currentColor}.reveal .slide-number-delimiter{margin:0 3px}.reveal{position:relative;width:100%;height:100%;overflow:hidden;touch-action:pinch-zoom}.reveal.embedded{touch-action:pan-y}.reveal.embedded.is-vertical-slide{touch-action:none}.reveal .slides{position:absolute;width:100%;height:100%;top:0;right:0;bottom:0;left:0;margin:auto;pointer-events:none;overflow:visible;z-index:1;text-align:center;perspective:600px;perspective-origin:50% 40%}.reveal .slides>section{perspective:600px}.reveal .slides>section,.reveal .slides>section>section{display:none;position:absolute;width:100%;pointer-events:auto;z-index:10;transform-style:flat;transition:transform-origin .8s cubic-bezier(.26,.86,.44,.985),transform .8s cubic-bezier(.26,.86,.44,.985),visibility .8s cubic-bezier(.26,.86,.44,.985),opacity .8s cubic-bezier(.26,.86,.44,.985)}.reveal[data-transition-speed=fast] .slides section{transition-duration:.4s}.reveal[data-transition-speed=slow] .slides section{transition-duration:1.2s}.reveal .slides section[data-transition-speed=fast]{transition-duration:.4s}.reveal .slides section[data-transition-speed=slow]{transition-duration:1.2s}.reveal .slides>section.stack{padding-top:0;padding-bottom:0;pointer-events:none;height:100%}.reveal .slides>section.present,.reveal .slides>section>section.present{display:block;z-index:11;opacity:1}.reveal .slides>section:empty,.reveal .slides>section>section:empty,.reveal .slides>section>section[data-background-interactive],.reveal .slides>section[data-background-interactive]{pointer-events:none}.reveal.center,.reveal.center .slides,.reveal.center .slides section{min-height:0!important}.reveal .slides>section:not(.present),.reveal .slides>section>section:not(.present){pointer-events:none}.reveal.overview .slides>section,.reveal.overview .slides>section>section{pointer-events:auto}.reveal .slides>section.future,.reveal .slides>section.future>section,.reveal .slides>section.past,.reveal .slides>section.past>section,.reveal .slides>section>section.future,.reveal .slides>section>section.past{opacity:0}.reveal .slides>section[data-transition=slide].past,.reveal .slides>section[data-transition~=slide-out].past,.reveal.slide .slides>section:not([data-transition]).past{transform:translate(-150%,0)}.reveal .slides>section[data-transition=slide].future,.reveal .slides>section[data-transition~=slide-in].future,.reveal.slide .slides>section:not([data-transition]).future{transform:translate(150%,0)}.reveal .slides>section>section[data-transition=slide].past,.reveal .slides>section>section[data-transition~=slide-out].past,.reveal.slide .slides>section>section:not([data-transition]).past{transform:translate(0,-150%)}.reveal .slides>section>section[data-transition=slide].future,.reveal .slides>section>section[data-transition~=slide-in].future,.reveal.slide .slides>section>section:not([data-transition]).future{transform:translate(0,150%)}.reveal .slides>section[data-transition=linear].past,.reveal .slides>section[data-transition~=linear-out].past,.reveal.linear .slides>section:not([data-transition]).past{transform:translate(-150%,0)}.reveal .slides>section[data-transition=linear].future,.reveal .slides>section[data-transition~=linear-in].future,.reveal.linear .slides>section:not([data-transition]).future{transform:translate(150%,0)}.reveal .slides>section>section[data-transition=linear].past,.reveal .slides>section>section[data-transition~=linear-out].past,.reveal.linear .slides>section>section:not([data-transition]).past{transform:translate(0,-150%)}.reveal .slides>section>section[data-transition=linear].future,.reveal .slides>section>section[data-transition~=linear-in].future,.reveal.linear .slides>section>section:not([data-transition]).future{transform:translate(0,150%)}.reveal .slides section[data-transition=default].stack,.reveal.default .slides section.stack{transform-style:preserve-3d}.reveal .slides>section[data-transition=default].past,.reveal .slides>section[data-transition~=default-out].past,.reveal.default .slides>section:not([data-transition]).past{transform:translate3d(-100%,0,0) rotateY(-90deg) translate3d(-100%,0,0)}.reveal .slides>section[data-transition=default].future,.reveal .slides>section[data-transition~=default-in].future,.reveal.default .slides>section:not([data-transition]).future{transform:translate3d(100%,0,0) rotateY(90deg) translate3d(100%,0,0)}.reveal .slides>section>section[data-transition=default].past,.reveal .slides>section>section[data-transition~=default-out].past,.reveal.default .slides>section>section:not([data-transition]).past{transform:translate3d(0,-300px,0) rotateX(70deg) translate3d(0,-300px,0)}.reveal .slides>section>section[data-transition=default].future,.reveal .slides>section>section[data-transition~=default-in].future,.reveal.default .slides>section>section:not([data-transition]).future{transform:translate3d(0,300px,0) rotateX(-70deg) translate3d(0,300px,0)}.reveal .slides section[data-transition=convex].stack,.reveal.convex .slides section.stack{transform-style:preserve-3d}.reveal .slides>section[data-transition=convex].past,.reveal .slides>section[data-transition~=convex-out].past,.reveal.convex .slides>section:not([data-transition]).past{transform:translate3d(-100%,0,0) rotateY(-90deg) translate3d(-100%,0,0)}.reveal .slides>section[data-transition=convex].future,.reveal .slides>section[data-transition~=convex-in].future,.reveal.convex .slides>section:not([data-transition]).future{transform:translate3d(100%,0,0) rotateY(90deg) translate3d(100%,0,0)}.reveal .slides>section>section[data-transition=convex].past,.reveal .slides>section>section[data-transition~=convex-out].past,.reveal.convex .slides>section>section:not([data-transition]).past{transform:translate3d(0,-300px,0) rotateX(70deg) translate3d(0,-300px,0)}.reveal .slides>section>section[data-transition=convex].future,.reveal .slides>section>section[data-transition~=convex-in].future,.reveal.convex .slides>section>section:not([data-transition]).future{transform:translate3d(0,300px,0) rotateX(-70deg) translate3d(0,300px,0)}.reveal .slides section[data-transition=concave].stack,.reveal.concave .slides section.stack{transform-style:preserve-3d}.reveal .slides>section[data-transition=concave].past,.reveal .slides>section[data-transition~=concave-out].past,.reveal.concave .slides>section:not([data-transition]).past{transform:translate3d(-100%,0,0) rotateY(90deg) translate3d(-100%,0,0)}.reveal .slides>section[data-transition=concave].future,.reveal .slides>section[data-transition~=concave-in].future,.reveal.concave .slides>section:not([data-transition]).future{transform:translate3d(100%,0,0) rotateY(-90deg) translate3d(100%,0,0)}.reveal .slides>section>section[data-transition=concave].past,.reveal .slides>section>section[data-transition~=concave-out].past,.reveal.concave .slides>section>section:not([data-transition]).past{transform:translate3d(0,-80%,0) rotateX(-70deg) translate3d(0,-80%,0)}.reveal .slides>section>section[data-transition=concave].future,.reveal .slides>section>section[data-transition~=concave-in].future,.reveal.concave .slides>section>section:not([data-transition]).future{transform:translate3d(0,80%,0) rotateX(70deg) translate3d(0,80%,0)}.reveal .slides section[data-transition=zoom],.reveal.zoom .slides section:not([data-transition]){transition-timing-function:ease}.reveal .slides>section[data-transition=zoom].past,.reveal .slides>section[data-transition~=zoom-out].past,.reveal.zoom .slides>section:not([data-transition]).past{visibility:hidden;transform:scale(16)}.reveal .slides>section[data-transition=zoom].future,.reveal .slides>section[data-transition~=zoom-in].future,.reveal.zoom .slides>section:not([data-transition]).future{visibility:hidden;transform:scale(.2)}.reveal .slides>section>section[data-transition=zoom].past,.reveal .slides>section>section[data-transition~=zoom-out].past,.reveal.zoom .slides>section>section:not([data-transition]).past{transform:scale(16)}.reveal .slides>section>section[data-transition=zoom].future,.reveal .slides>section>section[data-transition~=zoom-in].future,.reveal.zoom .slides>section>section:not([data-transition]).future{transform:scale(.2)}.reveal.cube .slides{perspective:1300px}.reveal.cube .slides section{padding:30px;min-height:700px;backface-visibility:hidden;box-sizing:border-box;transform-style:preserve-3d}.reveal.center.cube .slides section{min-height:0}.reveal.cube .slides section:not(.stack):before{content:"";position:absolute;display:block;width:100%;height:100%;left:0;top:0;background:rgba(0,0,0,.1);border-radius:4px;transform:translateZ(-20px)}.reveal.cube .slides section:not(.stack):after{content:"";position:absolute;display:block;width:90%;height:30px;left:5%;bottom:0;background:0 0;z-index:1;border-radius:4px;box-shadow:0 95px 25px rgba(0,0,0,.2);transform:translateZ(-90px) rotateX(65deg)}.reveal.cube .slides>section.stack{padding:0;background:0 0}.reveal.cube .slides>section.past{transform-origin:100% 0;transform:translate3d(-100%,0,0) rotateY(-90deg)}.reveal.cube .slides>section.future{transform-origin:0 0;transform:translate3d(100%,0,0) rotateY(90deg)}.reveal.cube .slides>section>section.past{transform-origin:0 100%;transform:translate3d(0,-100%,0) rotateX(90deg)}.reveal.cube .slides>section>section.future{transform-origin:0 0;transform:translate3d(0,100%,0) rotateX(-90deg)}.reveal.page .slides{perspective-origin:0 50%;perspective:3000px}.reveal.page .slides section{padding:30px;min-height:700px;box-sizing:border-box;transform-style:preserve-3d}.reveal.page .slides section.past{z-index:12}.reveal.page .slides section:not(.stack):before{content:"";position:absolute;display:block;width:100%;height:100%;left:0;top:0;background:rgba(0,0,0,.1);transform:translateZ(-20px)}.reveal.page .slides section:not(.stack):after{content:"";position:absolute;display:block;width:90%;height:30px;left:5%;bottom:0;background:0 0;z-index:1;border-radius:4px;box-shadow:0 95px 25px rgba(0,0,0,.2);-webkit-transform:translateZ(-90px) rotateX(65deg)}.reveal.page .slides>section.stack{padding:0;background:0 0}.reveal.page .slides>section.past{transform-origin:0 0;transform:translate3d(-40%,0,0) rotateY(-80deg)}.reveal.page .slides>section.future{transform-origin:100% 0;transform:translate3d(0,0,0)}.reveal.page .slides>section>section.past{transform-origin:0 0;transform:translate3d(0,-40%,0) rotateX(80deg)}.reveal.page .slides>section>section.future{transform-origin:0 100%;transform:translate3d(0,0,0)}.reveal .slides section[data-transition=fade],.reveal.fade .slides section:not([data-transition]),.reveal.fade .slides>section>section:not([data-transition]){transform:none;transition:opacity .5s}.reveal.fade.overview .slides section,.reveal.fade.overview .slides>section>section{transition:none}.reveal .slides section[data-transition=none],.reveal.none .slides section:not([data-transition]){transform:none;transition:none}.reveal .pause-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;visibility:hidden;opacity:0;z-index:100;transition:all 1s ease}.reveal .pause-overlay .resume-button{position:absolute;bottom:20px;right:20px;color:#ccc;border-radius:2px;padding:6px 14px;border:2px solid #ccc;font-size:16px;background:0 0;cursor:pointer}.reveal .pause-overlay .resume-button:hover{color:#fff;border-color:#fff}.reveal.paused .pause-overlay{visibility:visible;opacity:1}.reveal .no-transition,.reveal .no-transition *,.reveal .slides.disable-slide-transitions section{transition:none!important}.reveal .slides.disable-slide-transitions section{transform:none!important}.reveal .backgrounds{position:absolute;width:100%;height:100%;top:0;left:0;perspective:600px}.reveal .slide-background{display:none;position:absolute;width:100%;height:100%;opacity:0;visibility:hidden;overflow:hidden;background-color:rgba(0,0,0,0);transition:all .8s cubic-bezier(.26,.86,.44,.985)}.reveal .slide-background-content{position:absolute;width:100%;height:100%;background-position:50% 50%;background-repeat:no-repeat;background-size:cover}.reveal .slide-background.stack{display:block}.reveal .slide-background.present{opacity:1;visibility:visible;z-index:2}.print-pdf .reveal .slide-background{opacity:1!important;visibility:visible!important}.reveal .slide-background video{position:absolute;width:100%;height:100%;max-width:none;max-height:none;top:0;left:0;object-fit:cover}.reveal .slide-background[data-background-size=contain] video{object-fit:contain}.reveal>.backgrounds .slide-background[data-background-transition=none],.reveal[data-background-transition=none]>.backgrounds .slide-background:not([data-background-transition]){transition:none}.reveal>.backgrounds .slide-background[data-background-transition=slide],.reveal[data-background-transition=slide]>.backgrounds .slide-background:not([data-background-transition]){opacity:1}.reveal>.backgrounds .slide-background.past[data-background-transition=slide],.reveal[data-background-transition=slide]>.backgrounds .slide-background.past:not([data-background-transition]){transform:translate(-100%,0)}.reveal>.backgrounds .slide-background.future[data-background-transition=slide],.reveal[data-background-transition=slide]>.backgrounds .slide-background.future:not([data-background-transition]){transform:translate(100%,0)}.reveal>.backgrounds .slide-background>.slide-background.past[data-background-transition=slide],.reveal[data-background-transition=slide]>.backgrounds .slide-background>.slide-background.past:not([data-background-transition]){transform:translate(0,-100%)}.reveal>.backgrounds .slide-background>.slide-background.future[data-background-transition=slide],.reveal[data-background-transition=slide]>.backgrounds .slide-background>.slide-background.future:not([data-background-transition]){transform:translate(0,100%)}.reveal>.backgrounds .slide-background.past[data-background-transition=convex],.reveal[data-background-transition=convex]>.backgrounds .slide-background.past:not([data-background-transition]){opacity:0;transform:translate3d(-100%,0,0) rotateY(-90deg) translate3d(-100%,0,0)}.reveal>.backgrounds .slide-background.future[data-background-transition=convex],.reveal[data-background-transition=convex]>.backgrounds .slide-background.future:not([data-background-transition]){opacity:0;transform:translate3d(100%,0,0) rotateY(90deg) translate3d(100%,0,0)}.reveal>.backgrounds .slide-background>.slide-background.past[data-background-transition=convex],.reveal[data-background-transition=convex]>.backgrounds .slide-background>.slide-background.past:not([data-background-transition]){opacity:0;transform:translate3d(0,-100%,0) rotateX(90deg) translate3d(0,-100%,0)}.reveal>.backgrounds .slide-background>.slide-background.future[data-background-transition=convex],.reveal[data-background-transition=convex]>.backgrounds .slide-background>.slide-background.future:not([data-background-transition]){opacity:0;transform:translate3d(0,100%,0) rotateX(-90deg) translate3d(0,100%,0)}.reveal>.backgrounds .slide-background.past[data-background-transition=concave],.reveal[data-background-transition=concave]>.backgrounds .slide-background.past:not([data-background-transition]){opacity:0;transform:translate3d(-100%,0,0) rotateY(90deg) translate3d(-100%,0,0)}.reveal>.backgrounds .slide-background.future[data-background-transition=concave],.reveal[data-background-transition=concave]>.backgrounds .slide-background.future:not([data-background-transition]){opacity:0;transform:translate3d(100%,0,0) rotateY(-90deg) translate3d(100%,0,0)}.reveal>.backgrounds .slide-background>.slide-background.past[data-background-transition=concave],.reveal[data-background-transition=concave]>.backgrounds .slide-background>.slide-background.past:not([data-background-transition]){opacity:0;transform:translate3d(0,-100%,0) rotateX(-90deg) translate3d(0,-100%,0)}.reveal>.backgrounds .slide-background>.slide-background.future[data-background-transition=concave],.reveal[data-background-transition=concave]>.backgrounds .slide-background>.slide-background.future:not([data-background-transition]){opacity:0;transform:translate3d(0,100%,0) rotateX(90deg) translate3d(0,100%,0)}.reveal>.backgrounds .slide-background[data-background-transition=zoom],.reveal[data-background-transition=zoom]>.backgrounds .slide-background:not([data-background-transition]){transition-timing-function:ease}.reveal>.backgrounds .slide-background.past[data-background-transition=zoom],.reveal[data-background-transition=zoom]>.backgrounds .slide-background.past:not([data-background-transition]){opacity:0;visibility:hidden;transform:scale(16)}.reveal>.backgrounds .slide-background.future[data-background-transition=zoom],.reveal[data-background-transition=zoom]>.backgrounds .slide-background.future:not([data-background-transition]){opacity:0;visibility:hidden;transform:scale(.2)}.reveal>.backgrounds .slide-background>.slide-background.past[data-background-transition=zoom],.reveal[data-background-transition=zoom]>.backgrounds .slide-background>.slide-background.past:not([data-background-transition]){opacity:0;visibility:hidden;transform:scale(16)}.reveal>.backgrounds .slide-background>.slide-background.future[data-background-transition=zoom],.reveal[data-background-transition=zoom]>.backgrounds .slide-background>.slide-background.future:not([data-background-transition]){opacity:0;visibility:hidden;transform:scale(.2)}.reveal[data-transition-speed=fast]>.backgrounds .slide-background{transition-duration:.4s}.reveal[data-transition-speed=slow]>.backgrounds .slide-background{transition-duration:1.2s}.reveal [data-auto-animate-target^=unmatched]{will-change:opacity}.reveal section[data-auto-animate]:not(.stack):not([data-auto-animate=running]) [data-auto-animate-target^=unmatched]{opacity:0}.reveal.overview{perspective-origin:50% 50%;perspective:700px}.reveal.overview .slides{-moz-transform-style:preserve-3d}.reveal.overview .slides section{height:100%;top:0!important;opacity:1!important;overflow:hidden;visibility:visible!important;cursor:pointer;box-sizing:border-box}.reveal.overview .slides section.present,.reveal.overview .slides section:hover{outline:10px solid rgba(150,150,150,.4);outline-offset:10px}.reveal.overview .slides section .fragment{opacity:1;transition:none}.reveal.overview .slides section:after,.reveal.overview .slides section:before{display:none!important}.reveal.overview .slides>section.stack{padding:0;top:0!important;background:0 0;outline:0;overflow:visible}.reveal.overview .backgrounds{perspective:inherit;-moz-transform-style:preserve-3d}.reveal.overview .backgrounds .slide-background{opacity:1;visibility:visible;outline:10px solid rgba(150,150,150,.1);outline-offset:10px}.reveal.overview .backgrounds .slide-background.stack{overflow:visible}.reveal.overview .slides section,.reveal.overview-deactivating .slides section{transition:none}.reveal.overview .backgrounds .slide-background,.reveal.overview-deactivating .backgrounds .slide-background{transition:none}.reveal.rtl .slides,.reveal.rtl .slides h1,.reveal.rtl .slides h2,.reveal.rtl .slides h3,.reveal.rtl .slides h4,.reveal.rtl .slides h5,.reveal.rtl .slides h6{direction:rtl;font-family:sans-serif}.reveal.rtl code,.reveal.rtl pre{direction:ltr}.reveal.rtl ol,.reveal.rtl ul{text-align:right}.reveal.rtl .progress span{transform-origin:100% 0}.reveal.has-parallax-background .backgrounds{transition:all .8s ease}.reveal.has-parallax-background[data-transition-speed=fast] .backgrounds{transition-duration:.4s}.reveal.has-parallax-background[data-transition-speed=slow] .backgrounds{transition-duration:1.2s}.reveal>.overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1000;background:rgba(0,0,0,.95);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:all .3s ease}.reveal>.overlay .spinner{position:absolute;display:block;top:50%;left:50%;width:32px;height:32px;margin:-16px 0 0 -16px;z-index:10;background-image:url(data:image/gif;base64,R0lGODlhIAAgAPMAAJmZmf%2F%2F%2F6%2Bvr8nJybW1tcDAwOjo6Nvb26ioqKOjo7Ozs%2FLy8vz8%2FAAAAAAAAAAAACH%2FC05FVFNDQVBFMi4wAwEAAAAh%2FhpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh%2BQQJCgAAACwAAAAAIAAgAAAE5xDISWlhperN52JLhSSdRgwVo1ICQZRUsiwHpTJT4iowNS8vyW2icCF6k8HMMBkCEDskxTBDAZwuAkkqIfxIQyhBQBFvAQSDITM5VDW6XNE4KagNh6Bgwe60smQUB3d4Rz1ZBApnFASDd0hihh12BkE9kjAJVlycXIg7CQIFA6SlnJ87paqbSKiKoqusnbMdmDC2tXQlkUhziYtyWTxIfy6BE8WJt5YJvpJivxNaGmLHT0VnOgSYf0dZXS7APdpB309RnHOG5gDqXGLDaC457D1zZ%2FV%2FnmOM82XiHRLYKhKP1oZmADdEAAAh%2BQQJCgAAACwAAAAAIAAgAAAE6hDISWlZpOrNp1lGNRSdRpDUolIGw5RUYhhHukqFu8DsrEyqnWThGvAmhVlteBvojpTDDBUEIFwMFBRAmBkSgOrBFZogCASwBDEY%2FCZSg7GSE0gSCjQBMVG023xWBhklAnoEdhQEfyNqMIcKjhRsjEdnezB%2BA4k8gTwJhFuiW4dokXiloUepBAp5qaKpp6%2BHo7aWW54wl7obvEe0kRuoplCGepwSx2jJvqHEmGt6whJpGpfJCHmOoNHKaHx61WiSR92E4lbFoq%2BB6QDtuetcaBPnW6%2BO7wDHpIiK9SaVK5GgV543tzjgGcghAgAh%2BQQJCgAAACwAAAAAIAAgAAAE7hDISSkxpOrN5zFHNWRdhSiVoVLHspRUMoyUakyEe8PTPCATW9A14E0UvuAKMNAZKYUZCiBMuBakSQKG8G2FzUWox2AUtAQFcBKlVQoLgQReZhQlCIJesQXI5B0CBnUMOxMCenoCfTCEWBsJColTMANldx15BGs8B5wlCZ9Po6OJkwmRpnqkqnuSrayqfKmqpLajoiW5HJq7FL1Gr2mMMcKUMIiJgIemy7xZtJsTmsM4xHiKv5KMCXqfyUCJEonXPN2rAOIAmsfB3uPoAK%2B%2BG%2Bw48edZPK%2BM6hLJpQg484enXIdQFSS1u6UhksENEQAAIfkECQoAAAAsAAAAACAAIAAABOcQyEmpGKLqzWcZRVUQnZYg1aBSh2GUVEIQ2aQOE%2BG%2BcD4ntpWkZQj1JIiZIogDFFyHI0UxQwFugMSOFIPJftfVAEoZLBbcLEFhlQiqGp1Vd140AUklUN3eCA51C1EWMzMCezCBBmkxVIVHBWd3HHl9JQOIJSdSnJ0TDKChCwUJjoWMPaGqDKannasMo6WnM562R5YluZRwur0wpgqZE7NKUm%2BFNRPIhjBJxKZteWuIBMN4zRMIVIhffcgojwCF117i4nlLnY5ztRLsnOk%2BaV%2BoJY7V7m76PdkS4trKcdg0Zc0tTcKkRAAAIfkECQoAAAAsAAAAACAAIAAABO4QyEkpKqjqzScpRaVkXZWQEximw1BSCUEIlDohrft6cpKCk5xid5MNJTaAIkekKGQkWyKHkvhKsR7ARmitkAYDYRIbUQRQjWBwJRzChi9CRlBcY1UN4g0%2FVNB0AlcvcAYHRyZPdEQFYV8ccwR5HWxEJ02YmRMLnJ1xCYp0Y5idpQuhopmmC2KgojKasUQDk5BNAwwMOh2RtRq5uQuPZKGIJQIGwAwGf6I0JXMpC8C7kXWDBINFMxS4DKMAWVWAGYsAdNqW5uaRxkSKJOZKaU3tPOBZ4DuK2LATgJhkPJMgTwKCdFjyPHEnKxFCDhEAACH5BAkKAAAALAAAAAAgACAAAATzEMhJaVKp6s2nIkolIJ2WkBShpkVRWqqQrhLSEu9MZJKK9y1ZrqYK9WiClmvoUaF8gIQSNeF1Er4MNFn4SRSDARWroAIETg1iVwuHjYB1kYc1mwruwXKC9gmsJXliGxc%2BXiUCby9ydh1sOSdMkpMTBpaXBzsfhoc5l58Gm5yToAaZhaOUqjkDgCWNHAULCwOLaTmzswadEqggQwgHuQsHIoZCHQMMQgQGubVEcxOPFAcMDAYUA85eWARmfSRQCdcMe0zeP1AAygwLlJtPNAAL19DARdPzBOWSm1brJBi45soRAWQAAkrQIykShQ9wVhHCwCQCACH5BAkKAAAALAAAAAAgACAAAATrEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiRMDjI0Fd30%2FiI2UA5GSS5UDj2l6NoqgOgN4gksEBgYFf0FDqKgHnyZ9OX8HrgYHdHpcHQULXAS2qKpENRg7eAMLC7kTBaixUYFkKAzWAAnLC7FLVxLWDBLKCwaKTULgEwbLA4hJtOkSBNqITT3xEgfLpBtzE%2FjiuL04RGEBgwWhShRgQExHBAAh%2BQQJCgAAACwAAAAAIAAgAAAE7xDISWlSqerNpyJKhWRdlSAVoVLCWk6JKlAqAavhO9UkUHsqlE6CwO1cRdCQ8iEIfzFVTzLdRAmZX3I2SfZiCqGk5dTESJeaOAlClzsJsqwiJwiqnFrb2nS9kmIcgEsjQydLiIlHehhpejaIjzh9eomSjZR%2BipslWIRLAgMDOR2DOqKogTB9pCUJBagDBXR6XB0EBkIIsaRsGGMMAxoDBgYHTKJiUYEGDAzHC9EACcUGkIgFzgwZ0QsSBcXHiQvOwgDdEwfFs0sDzt4S6BK4xYjkDOzn0unFeBzOBijIm1Dgmg5YFQwsCMjp1oJ8LyIAACH5BAkKAAAALAAAAAAgACAAAATwEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiUd6GGl6NoiPOH16iZKNlH6KmyWFOggHhEEvAwwMA0N9GBsEC6amhnVcEwavDAazGwIDaH1ipaYLBUTCGgQDA8NdHz0FpqgTBwsLqAbWAAnIA4FWKdMLGdYGEgraigbT0OITBcg5QwPT4xLrROZL6AuQAPUS7bxLpoWidY0JtxLHKhwwMJBTHgPKdEQAACH5BAkKAAAALAAAAAAgACAAAATrEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiUd6GAULDJCRiXo1CpGXDJOUjY%2BYip9DhToJA4RBLwMLCwVDfRgbBAaqqoZ1XBMHswsHtxtFaH1iqaoGNgAIxRpbFAgfPQSqpbgGBqUD1wBXeCYp1AYZ19JJOYgH1KwA4UBvQwXUBxPqVD9L3sbp2BNk2xvvFPJd%2BMFCN6HAAIKgNggY0KtEBAAh%2BQQJCgAAACwAAAAAIAAgAAAE6BDISWlSqerNpyJKhWRdlSAVoVLCWk6JKlAqAavhO9UkUHsqlE6CwO1cRdCQ8iEIfzFVTzLdRAmZX3I2SfYIDMaAFdTESJeaEDAIMxYFqrOUaNW4E4ObYcCXaiBVEgULe0NJaxxtYksjh2NLkZISgDgJhHthkpU4mW6blRiYmZOlh4JWkDqILwUGBnE6TYEbCgevr0N1gH4At7gHiRpFaLNrrq8HNgAJA70AWxQIH1%2BvsYMDAzZQPC9VCNkDWUhGkuE5PxJNwiUK4UfLzOlD4WvzAHaoG9nxPi5d%2BjYUqfAhhykOFwJWiAAAIfkECQoAAAAsAAAAACAAIAAABPAQyElpUqnqzaciSoVkXVUMFaFSwlpOCcMYlErAavhOMnNLNo8KsZsMZItJEIDIFSkLGQoQTNhIsFehRww2CQLKF0tYGKYSg%2BygsZIuNqJksKgbfgIGepNo2cIUB3V1B3IvNiBYNQaDSTtfhhx0CwVPI0UJe0%2Bbm4g5VgcGoqOcnjmjqDSdnhgEoamcsZuXO1aWQy8KAwOAuTYYGwi7w5h%2BKr0SJ8MFihpNbx%2B4Erq7BYBuzsdiH1jCAzoSfl0rVirNbRXlBBlLX%2BBP0XJLAPGzTkAuAOqb0WT5AH7OcdCm5B8TgRwSRKIHQtaLCwg1RAAAOwAAAAAAAAAAAA%3D%3D);visibility:visible;opacity:.6;transition:all .3s ease}.reveal>.overlay header{position:absolute;left:0;top:0;width:100%;padding:5px;z-index:2;box-sizing:border-box}.reveal>.overlay header a{display:inline-block;width:40px;height:40px;line-height:36px;padding:0 10px;float:right;opacity:.6;box-sizing:border-box}.reveal>.overlay header a:hover{opacity:1}.reveal>.overlay header a .icon{display:inline-block;width:20px;height:20px;background-position:50% 50%;background-size:100%;background-repeat:no-repeat}.reveal>.overlay header a.close .icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABkklEQVRYR8WX4VHDMAxG6wnoJrABZQPYBCaBTWAD2g1gE5gg6OOsXuxIlr40d81dfrSJ9V4c2VLK7spHuTJ/5wpM07QXuXc5X0opX2tEJcadjHuV80li/FgxTIEK/5QBCICBD6xEhSMGHgQPgBgLiYVAB1dpSqKDawxTohFw4JSEA3clzgIBPCURwE2JucBR7rhPJJv5OpJwDX+SfDjgx1wACQeJG1aChP9K/IMmdZ8DtESV1WyP3Bt4MwM6sj4NMxMYiqUWHQu4KYA/SYkIjOsm3BXYWMKFDwU2khjCQ4ELJUJ4SmClRArOCmSXGuKma0fYD5CbzHxFpCSGAhfAVSSUGDUk2BWZaff2g6GE15BsBQ9nwmpIGDiyHQddwNTMKkbZaf9fajXQca1EX44puJZUsnY0ObGmITE3GVLCbEhQUjGVt146j6oasWN+49Vph2w1pZ5EansNZqKBm1txbU57iRRcZ86RWMDdWtBJUHBHwoQPi1GV+JCbntmvok7iTX4/Up9mgyTc/FJYDTcndgH/AA5A/CHsyEkVAAAAAElFTkSuQmCC)}.reveal>.overlay header a.external .icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAcElEQVRYR+2WSQoAIQwEzf8f7XiOMkUQxUPlGkM3hVmiQfQR9GYnH1SsAQlI4DiBqkCMoNb9y2e90IAEJPAcgdznU9+engMaeJ7Azh5Y1U67gAho4DqBqmB1buAf0MB1AlVBek83ZPkmJMGc1wAR+AAqod/B97TRpQAAAABJRU5ErkJggg==)}.reveal>.overlay .viewport{position:absolute;display:flex;top:50px;right:0;bottom:0;left:0}.reveal>.overlay.overlay-preview .viewport iframe{width:100%;height:100%;max-width:100%;max-height:100%;border:0;opacity:0;visibility:hidden;transition:all .3s ease}.reveal>.overlay.overlay-preview.loaded .viewport iframe{opacity:1;visibility:visible}.reveal>.overlay.overlay-preview.loaded .viewport-inner{position:absolute;z-index:-1;left:0;top:45%;width:100%;text-align:center;letter-spacing:normal}.reveal>.overlay.overlay-preview .x-frame-error{opacity:0;transition:opacity .3s ease .3s}.reveal>.overlay.overlay-preview.loaded .x-frame-error{opacity:1}.reveal>.overlay.overlay-preview.loaded .spinner{opacity:0;visibility:hidden;transform:scale(.2)}.reveal>.overlay.overlay-help .viewport{overflow:auto;color:#fff}.reveal>.overlay.overlay-help .viewport .viewport-inner{width:600px;margin:auto;padding:20px 20px 80px 20px;text-align:center;letter-spacing:normal}.reveal>.overlay.overlay-help .viewport .viewport-inner .title{font-size:20px}.reveal>.overlay.overlay-help .viewport .viewport-inner table{border:1px solid #fff;border-collapse:collapse;font-size:16px}.reveal>.overlay.overlay-help .viewport .viewport-inner table td,.reveal>.overlay.overlay-help .viewport .viewport-inner table th{width:200px;padding:14px;border:1px solid #fff;vertical-align:middle}.reveal>.overlay.overlay-help .viewport .viewport-inner table th{padding-top:20px;padding-bottom:20px}.reveal .playback{position:absolute;left:15px;bottom:20px;z-index:30;cursor:pointer;transition:all .4s ease;-webkit-tap-highlight-color:transparent}.reveal.overview .playback{opacity:0;visibility:hidden}.reveal .hljs{min-height:100%}.reveal .hljs table{margin:initial}.reveal .hljs-ln-code,.reveal .hljs-ln-numbers{padding:0;border:0}.reveal .hljs-ln-numbers{opacity:.6;padding-right:.75em;text-align:right;vertical-align:top}.reveal .hljs.has-highlights tr:not(.highlight-line){opacity:.4}.reveal .hljs.has-highlights.fragment{transition:all .2s ease}.reveal .hljs:not(:first-child).fragment{position:absolute;top:0;left:0;width:100%;box-sizing:border-box}.reveal pre[data-auto-animate-target]{overflow:hidden}.reveal pre[data-auto-animate-target] code{height:100%}.reveal .roll{display:inline-block;line-height:1.2;overflow:hidden;vertical-align:top;perspective:400px;perspective-origin:50% 50%}.reveal .roll:hover{background:0 0;text-shadow:none}.reveal .roll span{display:block;position:relative;padding:0 2px;pointer-events:none;transition:all .4s ease;transform-origin:50% 0;transform-style:preserve-3d;backface-visibility:hidden}.reveal .roll:hover span{background:rgba(0,0,0,.5);transform:translate3d(0,0,-45px) rotateX(90deg)}.reveal .roll span:after{content:attr(data-title);display:block;position:absolute;left:0;top:0;padding:0 2px;backface-visibility:hidden;transform-origin:50% 0;transform:translate3d(0,110%,0) rotateX(-90deg)}.reveal aside.notes{display:none}.reveal .speaker-notes{display:none;position:absolute;width:33.3333333333%;height:100%;top:0;left:100%;padding:14px 18px 14px 18px;z-index:1;font-size:18px;line-height:1.4;border:1px solid rgba(0,0,0,.05);color:#222;background-color:#f5f5f5;overflow:auto;box-sizing:border-box;text-align:left;font-family:Helvetica,sans-serif;-webkit-overflow-scrolling:touch}.reveal .speaker-notes .notes-placeholder{color:#ccc;font-style:italic}.reveal .speaker-notes:focus{outline:0}.reveal .speaker-notes:before{content:"Speaker notes";display:block;margin-bottom:10px;opacity:.5}.reveal.show-notes{max-width:75%;overflow:visible}.reveal.show-notes .speaker-notes{display:block}@media screen and (min-width:1600px){.reveal .speaker-notes{font-size:20px}}@media screen and (max-width:1024px){.reveal.show-notes{border-left:0;max-width:none;max-height:70%;max-height:70vh;overflow:visible}.reveal.show-notes .speaker-notes{top:100%;left:0;width:100%;height:30vh;border:0}}@media screen and (max-width:600px){.reveal.show-notes{max-height:60%;max-height:60vh}.reveal.show-notes .speaker-notes{top:100%;height:40vh}.reveal .speaker-notes{font-size:14px}}.reveal .jump-to-slide{position:absolute;top:15px;left:15px;z-index:30;font-size:32px;-webkit-tap-highlight-color:transparent}.reveal .jump-to-slide-input{background:0 0;padding:8px;font-size:inherit;color:currentColor;border:0}.reveal .jump-to-slide-input::placeholder{color:currentColor;opacity:.5}.reveal.has-dark-background .jump-to-slide-input{color:#fff}.reveal.has-light-background .jump-to-slide-input{color:#222}.reveal .jump-to-slide-input:focus{outline:0}.zoomed .reveal *,.zoomed .reveal :after,.zoomed .reveal :before{backface-visibility:visible!important}.zoomed .reveal .controls,.zoomed .reveal .progress{opacity:0}.zoomed .reveal .roll span{background:0 0}.zoomed .reveal .roll span:after{visibility:hidden}.reveal-viewport.loading-scroll-mode{visibility:hidden}.reveal-viewport.reveal-scroll{margin:0 auto;overflow:auto;overflow-x:hidden;overflow-y:auto;z-index:1;--r-scrollbar-width:7px;--r-scrollbar-trigger-size:5px;--r-controls-spacing:8px}@media screen and (max-width:500px){.reveal-viewport.reveal-scroll{--r-scrollbar-width:3px;--r-scrollbar-trigger-size:3px}}.reveal-viewport.reveal-scroll .backgrounds,.reveal-viewport.reveal-scroll .controls,.reveal-viewport.reveal-scroll .playback,.reveal-viewport.reveal-scroll .progress,.reveal-viewport.reveal-scroll .slide-number,.reveal-viewport.reveal-scroll .speaker-notes{display:none!important}.reveal-viewport.reveal-scroll .overlay,.reveal-viewport.reveal-scroll .pause-overlay{position:fixed}.reveal-viewport.reveal-scroll .reveal{overflow:visible;touch-action:manipulation}.reveal-viewport.reveal-scroll .slides{position:static;pointer-events:initial;left:auto;top:auto;width:100%!important;margin:0;padding:0;overflow:visible;display:block;perspective:none;perspective-origin:50% 50%}.reveal-viewport.reveal-scroll .scroll-page{position:relative;width:100%;height:calc(var(--page-height) + var(--page-scroll-padding));z-index:1;overflow:visible}.reveal-viewport.reveal-scroll .scroll-page-sticky{position:sticky;height:var(--page-height);top:0}.reveal-viewport.reveal-scroll .scroll-page-content{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden}.reveal-viewport.reveal-scroll .scroll-page section{visibility:visible!important;display:block!important;position:absolute!important;width:var(--slide-width)!important;height:var(--slide-height)!important;top:50%!important;left:50%!important;opacity:1!important;transform:scale(var(--slide-scale)) translate(-50%,-50%)!important;transform-style:flat!important;transform-origin:0 0!important}.reveal-viewport.reveal-scroll .slide-background{display:block!important;position:absolute;top:0;left:0;width:100%;height:100%;z-index:auto!important;visibility:visible;opacity:1;touch-action:manipulation}.reveal-viewport.reveal-scroll[data-scrollbar=auto]::-webkit-scrollbar,.reveal-viewport.reveal-scroll[data-scrollbar=true]::-webkit-scrollbar{display:none}.reveal-viewport.reveal-scroll[data-scrollbar=auto],.reveal-viewport.reveal-scroll[data-scrollbar=true]{scrollbar-width:none}.reveal-viewport.has-dark-background,.reveal.has-dark-background{--r-overlay-element-bg-color:240,240,240;--r-overlay-element-fg-color:0,0,0}.reveal-viewport.has-light-background,.reveal.has-light-background{--r-overlay-element-bg-color:0,0,0;--r-overlay-element-fg-color:240,240,240}.reveal-viewport.reveal-scroll .scrollbar{position:sticky;top:50%;z-index:20;opacity:0;transition:all .3s ease}.reveal-viewport.reveal-scroll .scrollbar.visible,.reveal-viewport.reveal-scroll .scrollbar:hover{opacity:1}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-inner{position:absolute;width:var(--r-scrollbar-width);height:calc(var(--viewport-height) - var(--r-controls-spacing) * 2);right:var(--r-controls-spacing);top:0;transform:translateY(-50%);border-radius:var(--r-scrollbar-width);z-index:10}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-playhead{position:absolute;width:var(--r-scrollbar-width);height:var(--r-scrollbar-width);top:0;left:0;border-radius:var(--r-scrollbar-width);background-color:rgba(var(--r-overlay-element-bg-color),1);z-index:11;transition:background-color .2s ease}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide{position:absolute;width:100%;background-color:rgba(var(--r-overlay-element-bg-color),.2);box-shadow:0 0 0 1px rgba(var(--r-overlay-element-fg-color),.1);border-radius:var(--r-scrollbar-width);transition:background-color .2s ease}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide:after{content:"";position:absolute;width:200%;height:100%;top:0;left:-50%;background:rgba(0,0,0,0);z-index:-1}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide.active,.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide:hover{background-color:rgba(var(--r-overlay-element-bg-color),.4)}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-trigger{position:absolute;width:100%;transition:background-color .2s ease}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide.active.has-triggers{background-color:rgba(var(--r-overlay-element-bg-color),.4);z-index:10}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide.active .scrollbar-trigger:after{content:"";position:absolute;width:var(--r-scrollbar-trigger-size);height:var(--r-scrollbar-trigger-size);border-radius:20px;top:50%;left:50%;transform:translate(-50%,-50%);background-color:rgba(var(--r-overlay-element-bg-color),1);transition:transform .2s ease,opacity .2s ease;opacity:.4}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide.active .scrollbar-trigger.active:after,.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide.active .scrollbar-trigger.active~.scrollbar-trigger:after{opacity:1}.reveal-viewport.reveal-scroll .scrollbar .scrollbar-slide.active .scrollbar-trigger~.scrollbar-trigger.active:after{transform:translate(calc(var(--r-scrollbar-width) * -2),0);background-color:rgba(var(--r-overlay-element-bg-color),1)}html.reveal-print *{-webkit-print-color-adjust:exact}html.reveal-print{width:100%;height:100%;overflow:visible}html.reveal-print body{margin:0 auto!important;border:0;padding:0;float:none!important;overflow:visible}html.reveal-print .nestedarrow,html.reveal-print .reveal .controls,html.reveal-print .reveal .playback,html.reveal-print .reveal .progress,html.reveal-print .reveal.overview,html.reveal-print .state-background{display:none!important}html.reveal-print .reveal pre code{overflow:hidden!important}html.reveal-print .reveal{width:auto!important;height:auto!important;overflow:hidden!important}html.reveal-print .reveal .slides{position:static;width:100%!important;height:auto!important;zoom:1!important;pointer-events:initial;left:auto;top:auto;margin:0!important;padding:0!important;overflow:visible;display:block;perspective:none;perspective-origin:50% 50%}html.reveal-print .reveal .slides .pdf-page{position:relative;overflow:hidden;z-index:1;page-break-after:always}html.reveal-print .reveal .slides .pdf-page:last-of-type{page-break-after:avoid}html.reveal-print .reveal .slides section{visibility:visible!important;display:block!important;position:absolute!important;margin:0!important;padding:0!important;box-sizing:border-box!important;min-height:1px;opacity:1!important;transform-style:flat!important;transform:none!important}html.reveal-print .reveal section.stack{position:relative!important;margin:0!important;padding:0!important;page-break-after:avoid!important;height:auto!important;min-height:auto!important}html.reveal-print .reveal img{box-shadow:none}html.reveal-print .reveal .backgrounds{display:none}html.reveal-print .reveal .slide-background{display:block!important;position:absolute;top:0;left:0;width:100%;height:100%;z-index:auto!important}html.reveal-print .reveal.show-notes{max-width:none;max-height:none}html.reveal-print .reveal .speaker-notes-pdf{display:block;width:100%;height:auto;max-height:none;top:auto;right:auto;bottom:auto;left:auto;z-index:100}html.reveal-print .reveal .speaker-notes-pdf[data-layout=separate-page]{position:relative;color:inherit;background-color:transparent;padding:20px;page-break-after:always;border:0}html.reveal-print .reveal .slide-number-pdf{display:block;position:absolute;font-size:14px;visibility:visible}html.reveal-print .aria-status{display:none}@media print{html:not(.print-pdf){overflow:visible;width:auto;height:auto}html:not(.print-pdf) body{margin:0;padding:0;overflow:visible}html:not(.print-pdf) .reveal{background:#fff;font-size:20pt}html:not(.print-pdf) .reveal .backgrounds,html:not(.print-pdf) .reveal .controls,html:not(.print-pdf) .reveal .progress,html:not(.print-pdf) .reveal .slide-number,html:not(.print-pdf) .reveal .state-background{display:none!important}html:not(.print-pdf) .reveal li,html:not(.print-pdf) .reveal p,html:not(.print-pdf) .reveal td{font-size:20pt!important;color:#000}html:not(.print-pdf) .reveal h1,html:not(.print-pdf) .reveal h2,html:not(.print-pdf) .reveal h3,html:not(.print-pdf) .reveal h4,html:not(.print-pdf) .reveal h5,html:not(.print-pdf) .reveal h6{color:#000!important;height:auto;line-height:normal;text-align:left;letter-spacing:normal}html:not(.print-pdf) .reveal h1{font-size:28pt!important}html:not(.print-pdf) .reveal h2{font-size:24pt!important}html:not(.print-pdf) .reveal h3{font-size:22pt!important}html:not(.print-pdf) .reveal h4{font-size:22pt!important;font-variant:small-caps}html:not(.print-pdf) .reveal h5{font-size:21pt!important}html:not(.print-pdf) .reveal h6{font-size:20pt!important;font-style:italic}html:not(.print-pdf) .reveal a:link,html:not(.print-pdf) .reveal a:visited{color:#000!important;font-weight:700;text-decoration:underline}html:not(.print-pdf) .reveal div,html:not(.print-pdf) .reveal ol,html:not(.print-pdf) .reveal p,html:not(.print-pdf) .reveal ul{visibility:visible;position:static;width:auto;height:auto;display:block;overflow:visible;margin:0;text-align:left!important}html:not(.print-pdf) .reveal pre,html:not(.print-pdf) .reveal table{margin-left:0;margin-right:0}html:not(.print-pdf) .reveal pre code{padding:20px}html:not(.print-pdf) .reveal blockquote{margin:20px 0}html:not(.print-pdf) .reveal .slides{position:static!important;width:auto!important;height:auto!important;left:0!important;top:0!important;margin-left:0!important;margin-top:0!important;padding:0!important;zoom:1!important;transform:none!important;overflow:visible!important;display:block!important;text-align:left!important;perspective:none;perspective-origin:50% 50%}html:not(.print-pdf) .reveal .slides section{visibility:visible!important;position:static!important;width:auto!important;height:auto!important;display:block!important;overflow:visible!important;left:0!important;top:0!important;margin-left:0!important;margin-top:0!important;padding:60px 20px!important;z-index:auto!important;opacity:1!important;page-break-after:always!important;transform-style:flat!important;transform:none!important;transition:none!important}html:not(.print-pdf) .reveal .slides section.stack{padding:0!important}html:not(.print-pdf) .reveal .slides section:last-of-type{page-break-after:avoid!important}html:not(.print-pdf) .reveal .slides section .fragment{opacity:1!important;visibility:visible!important;transform:none!important}html:not(.print-pdf) .reveal .r-fit-text{white-space:normal!important}html:not(.print-pdf) .reveal section img{display:block;margin:15px 0;background:#fff;border:1px solid #666;box-shadow:none}html:not(.print-pdf) .reveal section small{font-size:.8em}html:not(.print-pdf) .reveal .hljs{max-height:100%;white-space:pre-wrap;word-wrap:break-word;word-break:break-word;font-size:15pt}html:not(.print-pdf) .reveal .hljs .hljs-ln-numbers{white-space:nowrap}html:not(.print-pdf) .reveal .hljs td{font-size:inherit!important;color:inherit!important}}
+</style>
+<style>
+/* Layout: dark "night shift" workbench. Aurora light drifts behind a blueprint grid; slides sit on it like terminal panes. */
+:root{
+  color-scheme: dark;
+  --ink:#0C0F1E; --panel:#151A31; --panel-2:#1C2242; --line:#2B3260;
+  --text:#EEF0FA; --muted:#A6ADCE; --dim:#6E77A3;
+  --mint:#4BE3AC; --violet:#A394FF; --coral:#FF7E6B; --amber:#FFC857;
+  --display:'Bricolage Grotesque', 'Trebuchet MS', sans-serif;
+  --body:'Instrument Sans', 'Segoe UI', Arial, sans-serif;
+  --mono:'JetBrains Mono', Consolas, 'Courier New', monospace;
+}
+html,body{height:100%;background:var(--ink);color:var(--text)}
+body{padding-left:max(0px, env(safe-area-inset-left,0px));padding-right:max(0px, env(safe-area-inset-right,0px))}
+
+/* ---------- ambient background ---------- */
+#bg{position:fixed;inset:0;overflow:hidden;z-index:0;pointer-events:none;background:var(--ink)}
+#bg .blob{position:absolute;width:55vmax;height:55vmax;border-radius:50%;filter:blur(90px);opacity:.38;mix-blend-mode:screen}
+#bg .b1{background:radial-gradient(circle,#3B2D9E 0%,transparent 65%);top:-20vmax;left:-15vmax;animation:drift1 38s ease-in-out infinite alternate}
+#bg .b2{background:radial-gradient(circle,#0F7A68 0%,transparent 65%);bottom:-25vmax;right:-15vmax;animation:drift2 44s ease-in-out infinite alternate}
+#bg .b3{background:radial-gradient(circle,#8A2F52 0%,transparent 65%);top:30%;left:45%;width:35vmax;height:35vmax;opacity:.22;animation:drift3 52s ease-in-out infinite alternate}
+#bg .grid{position:absolute;inset:-2px;background-image:
+  linear-gradient(rgba(150,160,230,.06) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(150,160,230,.06) 1px,transparent 1px);
+  background-size:64px 64px;mask-image:radial-gradient(ellipse at 50% 45%,#000 30%,transparent 85%)}
+#bg .scan{position:absolute;left:0;right:0;height:180px;background:linear-gradient(180deg,transparent,rgba(75,227,172,.05),transparent);animation:scan 14s linear infinite}
+@keyframes drift1{to{transform:translate(18vmax,12vmax) scale(1.15)}}
+@keyframes drift2{to{transform:translate(-16vmax,-10vmax) scale(1.1)}}
+@keyframes drift3{to{transform:translate(-22vmax,8vmax) scale(.85)}}
+@keyframes scan{from{top:-200px}to{top:110%}}
+
+/* ---------- reveal base ---------- */
+.reveal-viewport{background:transparent}
+.reveal{font-family:var(--body);font-size:34px;color:var(--text);z-index:1}
+.reveal .slides{text-align:left}
+.reveal .slides section{height:100%}
+.reveal h1,.reveal h2,.reveal h3{font-family:var(--display);color:var(--text);margin:0;text-wrap:balance;letter-spacing:-.02em}
+.reveal h1{font-size:118px;font-weight:800;line-height:.98}
+.reveal h2{font-size:68px;font-weight:700;line-height:1.05}
+.reveal h3{font-size:38px;font-weight:700;line-height:1.15}
+.reveal p{margin:0;line-height:1.45}
+.reveal code,.mono{font-family:var(--mono)}
+.reveal a{color:var(--mint)}
+.eyebrow{font-family:var(--mono);font-size:22px;letter-spacing:.14em;text-transform:uppercase;color:var(--mint)}
+.muted{color:var(--muted)}
+.stack{display:flex;flex-direction:column;gap:28px}
+.row{display:flex;gap:28px;align-items:stretch}
+.row>*{flex:1;min-width:0}
+.pane{background:rgba(21,26,49,.82);border:1px solid var(--line);border-radius:18px;padding:30px 34px;backdrop-filter:blur(6px)}
+.pane h3{margin-bottom:10px}
+.pane p{font-size:27px;color:var(--muted)}
+.tag{display:inline-block;font-family:var(--mono);font-size:20px;padding:4px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.kbd{font-family:var(--mono);font-size:24px;color:var(--mint)}
+.center{justify-content:center;align-items:center;text-align:center}
+.slide-num{position:fixed}
+.foot{position:absolute;left:0;bottom:-6px;font-family:var(--mono);font-size:20px;color:var(--dim)}
+
+/* entrance: children of the current slide rise in, staggered */
+.reveal .slides section.present .rise{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+.reveal .slides section.present .rise:nth-child(2){animation-delay:.08s}
+.reveal .slides section.present .rise:nth-child(3){animation-delay:.16s}
+.reveal .slides section.present .rise:nth-child(4){animation-delay:.24s}
+.reveal .slides section.present .rise:nth-child(5){animation-delay:.32s}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+
+/* fragments: custom soft rise */
+.reveal .fragment.lift{opacity:0;transform:translateY(18px);transition:all .5s cubic-bezier(.2,.8,.2,1)}
+.reveal .fragment.lift.visible{opacity:1;transform:none}
+.reveal svg .fragment{transition:opacity .5s ease}
+.reveal .fragment.glow.visible{filter:drop-shadow(0 0 14px rgba(75,227,172,.55))}
+
+/* ---------- terminal / prompt ---------- */
+.term{background:#090C18;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.term .bar{display:flex;gap:8px;align-items:center;padding:12px 16px;background:#11152A;border-bottom:1px solid var(--line)}
+.term .bar i{width:13px;height:13px;border-radius:50%;background:#3A4170;display:block}
+.term .bar i:nth-child(1){background:var(--coral)}.term .bar i:nth-child(2){background:var(--amber)}.term .bar i:nth-child(3){background:var(--mint)}
+.term .bar span{margin-left:12px;font-family:var(--mono);font-size:18px;color:var(--dim)}
+.term pre{margin:0;padding:24px 28px;font-family:var(--mono);font-size:26px;line-height:1.55;color:var(--text);white-space:pre-wrap;box-shadow:none;width:auto}
+.term .c{color:var(--dim)} .term .g{color:var(--mint)} .term .r{color:var(--coral)} .term .y{color:var(--amber)} .term .v{color:var(--violet)}
+.cursor::after{content:"▋";color:var(--mint);animation:blink 1s steps(1) infinite;margin-left:4px}
+@keyframes blink{50%{opacity:0}}
+
+/* ---------- title slide ---------- */
+.title-wrap{display:flex;flex-direction:column;justify-content:center;height:100%;gap:34px}
+.title-wrap h1 .w{display:inline-block}
+.reveal section.present .title-wrap h1 .w{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.reveal section.present .title-wrap h1 .w:nth-child(2){animation-delay:.12s}
+.reveal section.present .title-wrap h1 .w:nth-child(3){animation-delay:.24s}
+.reveal section.present .title-wrap h1 .w:nth-child(4){animation-delay:.36s}
+.grad{background:linear-gradient(90deg,var(--mint),var(--violet) 60%,var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent}
+.chips{display:flex;gap:14px;flex-wrap:wrap}
+.chip{font-family:var(--mono);font-size:22px;padding:8px 18px;border-radius:999px;background:rgba(28,34,66,.85);border:1px solid var(--line);color:var(--muted)}
+.chip b{color:var(--text);font-weight:600}
+
+/* ---------- act divider ---------- */
+.act{display:flex;flex-direction:column;justify-content:center;height:100%;gap:26px}
+.act .num{font-family:var(--display);font-weight:800;font-size:260px;line-height:.8;color:transparent;-webkit-text-stroke:2px var(--line)}
+.reveal section.present .act .num{animation:numIn 1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes numIn{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:none}}
+
+/* ---------- svg diagrams ---------- */
+.diagram{width:100%;height:auto;display:block}
+.diagram text{font-family:var(--body)}
+.flow{stroke-dasharray:8 10;animation:flow 1.2s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-36}}
+.pulse{animation:pulse 2.4s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
+@keyframes pulse{50%{transform:scale(1.06);opacity:.85}}
+.orbit{animation:spin 18s linear infinite;transform-origin:center;transform-box:fill-box}
+@keyframes spin{to{transform:rotate(360deg)}}
+.packet{offset-rotate:0deg;animation:travel 2.6s cubic-bezier(.6,0,.4,1) infinite}
+@keyframes travel{from{offset-distance:0%}to{offset-distance:100%}}
+
+/* mock app */
+.app{background:#F3F4FA;color:#1A1F36;border-radius:16px;padding:26px 28px;font-family:var(--body);box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.app .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.app .top b{font-family:var(--display);font-size:32px}
+.app .count{font-weight:600;color:#4552D6;font-size:26px;padding:2px 10px;border-radius:8px}
+.app .count.liar{background:#FFE1DC;color:#B4321F}
+.app .tools{display:flex;gap:10px;margin-bottom:12px}
+.app .tools span{flex:1;border:1px solid #CBD1E4;border-radius:8px;padding:8px 12px;font-size:22px;color:#596080;background:#fff}
+.app .tools span.sel{flex:.5;color:#1A1F36;font-weight:600}
+.app .card{background:#fff;border-left:6px solid #E5484D;border-radius:8px;padding:10px 14px;margin-top:8px;font-size:22px;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+
+.stamp{font-family:var(--mono);font-size:22px;padding:6px 14px;border-radius:8px;border:2px solid currentColor;transform:rotate(-4deg);display:inline-block}
+
+/* code block */
+.code{background:#090C18;border:1px solid var(--line);border-radius:16px;padding:26px 30px;font-family:var(--mono);font-size:25px;line-height:1.6;white-space:pre;color:var(--text);overflow:hidden}
+.code .hl{border-radius:6px;transition:background .4s, box-shadow .4s}
+.code .hl.visible{background:rgba(75,227,172,.14);box-shadow:0 0 0 2px rgba(75,227,172,.35)}
+.code .k{color:var(--violet)} .code .s{color:var(--mint)} .code .d{color:var(--amber)} .code .c{color:var(--dim)}
+
+.list-num{display:flex;flex-direction:column;gap:18px}
+.list-num>div{display:flex;gap:22px;align-items:baseline}
+.list-num .n{font-family:var(--mono);color:var(--mint);font-size:24px;min-width:48px}
+
+.bigq{font-family:var(--display);font-size:150px;font-weight:800;line-height:.9}
+
+/* progress + controls */
+.reveal .progress{color:var(--mint);height:4px}
+.reveal .controls{color:var(--mint)}
+.reveal .slide-number{left:24px;right:auto;bottom:18px;background:transparent;font-family:var(--mono);color:var(--dim);font-size:18px}
+
+
+/* ---------- slide list drawer ---------- */
+#menuBtn{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));left:calc(16px + env(safe-area-inset-left,0px));z-index:30;width:52px;height:52px;border-radius:14px;border:1px solid var(--line);background:rgba(21,26,49,.85);color:var(--text);cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(6px)}
+#menuBtn span,#menuBtn span::before,#menuBtn span::after{display:block;width:22px;height:3px;border-radius:2px;background:var(--mint);position:relative;content:""}
+#menuBtn span::before{position:absolute;top:-7px}#menuBtn span::after{position:absolute;top:7px}
+#menuBtn:focus-visible,#drawer button:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+#drawer{position:fixed;top:0;bottom:0;left:0;width:min(420px,88vw);z-index:40;background:#11152A;border-right:1px solid var(--line);transform:translateX(-102%);transition:transform .35s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-left:env(safe-area-inset-left,0px)}
+#drawer.open{transform:none;box-shadow:30px 0 80px rgba(0,0,0,.6)}
+#drawer header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:14px;letter-spacing:.12em;color:var(--mint)}
+#drawer header button{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:4px 10px;cursor:pointer;font-size:14px}
+#drawer ol{list-style:none;margin:0;padding:0;overflow-y:auto;flex:1}
+#drawer li button{all:unset;box-sizing:border-box;width:100%;display:flex;gap:14px;align-items:flex-start;padding:13px 20px;border-bottom:1px solid #1E2444;cursor:pointer;font-family:var(--body);font-size:16px;line-height:1.35;color:var(--muted)}
+#drawer li button:hover{background:#171C38;color:var(--text)}
+#drawer li .dot{flex:none;width:18px;height:18px;border-radius:50%;border:2px solid var(--dim);margin-top:1px}
+#drawer li.divider button{color:var(--text);font-weight:600;font-family:var(--display);letter-spacing:.01em}
+#drawer li.divider .dot{border-color:var(--violet)}
+#drawer li.current button{background:#1C2242;color:var(--text)}
+#drawer li.current .dot{border-color:var(--mint);background:var(--mint);box-shadow:0 0 0 4px rgba(75,227,172,.2)}
+#drawer li.seen .dot{border-color:var(--mint)}
+#scrim{position:fixed;inset:0;z-index:35;background:rgba(5,7,15,.5);opacity:0;pointer-events:none;transition:opacity .3s}
+#scrim.open{opacity:1;pointer-events:auto}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+
+<div id="bg" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="grid"></div><div class="scan"></div></div>
+
+<button id="menuBtn" aria-label="Show list of slides (L)" aria-controls="drawer" aria-expanded="false"><span></span></button>
+<div id="scrim"></div>
+<nav id="drawer" aria-label="Slides"><header>SLIDES <button id="closeDrawer" aria-label="Close list">Esc</button></header><ol id="slideList"></ol></nav>
+<div class="reveal">
+<div class="slides">
+
+<section data-transition="fade" data-title="Hands-On with GitHub Copilot">
+  <div class="title-wrap">
+    <p class="eyebrow rise">// live workshop · 40 min · 4 demos + bonus</p>
+    <h1><span class="w">Hands-On</span> <span class="w">with</span> <span class="w grad">GitHub</span> <span class="w grad">Copilot</span></h1>
+    <p class="rise muted" style="font-size:40px">Agents, Automation, and MCP Integration</p>
+    <div class="chips rise">
+      <span class="chip"><b>Achraf Ben Alaya</b></span>
+      <span class="chip">Microsoft MVP</span>
+      <span class="chip">MCT</span>
+      <span class="chip">achrafbenalaya.com</span>
+    </div>
+  </div>
+  <aside class="notes">Welcome. One tiny app, two bugs, four demos. Everything runs on my laptop. No cloud, no magic, nothing pre-recorded.</aside>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">whoami</p>
+    <h2 class="rise">Achraf Ben Alaya</h2>
+    <div class="row rise" style="margin-top:20px">
+      <div class="pane"><h3>Cloud Architect</h3><p>Azure · GCP · Alibaba Cloud. Kubernetes and AI platforms.</p></div>
+      <div class="pane"><h3>MVP · MCT</h3><p>Speaker, trainer, mentor. I like demos that can break.</p></div>
+      <div class="pane"><h3>Creator</h3><p>Blog and YouTube on cloud and GitHub Copilot.</p></div>
+    </div>
+  </div>
+  <aside class="notes">30 seconds max.</aside>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">the map of today</p>
+    <h2 class="rise">Four ways to shape the agent</h2>
+    <svg class="diagram" viewBox="0 0 1600 470" aria-label="Instructions, MCP, parallel agents and skills around the agent">
+      <defs><linearGradient id="gA" x1="0" x2="1"><stop offset="0" stop-color="#4BE3AC"/><stop offset="1" stop-color="#A394FF"/></linearGradient></defs>
+      <path d="M40 235 H1560" stroke="#2B3260" stroke-width="3"/>
+      <path d="M40 235 H1560" stroke="url(#gA)" stroke-width="3" class="flow"/>
+      <g class="fragment" data-fragment-index="1">
+        <circle cx="200" cy="235" r="22" fill="#4BE3AC"/>
+        <text x="200" y="120" text-anchor="middle" fill="#4BE3AC" font-family="JetBrains Mono, monospace" font-size="22">ACT 1 · 6 min</text>
+        <text x="200" y="165" text-anchor="middle" fill="#EEF0FA" font-size="38" font-weight="700">Rules</text>
+        <text x="200" y="320" text-anchor="middle" fill="#A6ADCE" font-size="24">instructions file</text>
+        <text x="200" y="355" text-anchor="middle" fill="#A6ADCE" font-size="24">fixes Bug 1</text>
+      </g>
+      <g class="fragment" data-fragment-index="2">
+        <circle cx="600" cy="235" r="22" fill="#A394FF"/>
+        <text x="600" y="120" text-anchor="middle" fill="#A394FF" font-family="JetBrains Mono, monospace" font-size="22">ACT 2 · 8 min</text>
+        <text x="600" y="165" text-anchor="middle" fill="#EEF0FA" font-size="38" font-weight="700">Tools (MCP)</text>
+        <text x="600" y="320" text-anchor="middle" fill="#A6ADCE" font-size="24">eyes + hands</text>
+        <text x="600" y="355" text-anchor="middle" fill="#A6ADCE" font-size="24">finds Bug 2</text>
+      </g>
+      <g class="fragment" data-fragment-index="3">
+        <circle cx="1000" cy="235" r="22" fill="#FFC857"/>
+        <text x="1000" y="120" text-anchor="middle" fill="#FFC857" font-family="JetBrains Mono, monospace" font-size="22">ACT 3 · 8 min</text>
+        <text x="1000" y="165" text-anchor="middle" fill="#EEF0FA" font-size="38" font-weight="700">Two agents</text>
+        <text x="1000" y="320" text-anchor="middle" fill="#A6ADCE" font-size="24">in parallel</text>
+        <text x="1000" y="355" text-anchor="middle" fill="#A6ADCE" font-size="24">fix + build a tool</text>
+      </g>
+      <g class="fragment" data-fragment-index="4">
+        <circle cx="1400" cy="235" r="22" fill="#FF7E6B"/>
+        <text x="1400" y="120" text-anchor="middle" fill="#FF7E6B" font-family="JetBrains Mono, monospace" font-size="22">ACT 4 · 5 min</text>
+        <text x="1400" y="165" text-anchor="middle" fill="#EEF0FA" font-size="38" font-weight="700">Recipes</text>
+        <text x="1400" y="320" text-anchor="middle" fill="#A6ADCE" font-size="24">a skill</text>
+        <text x="1400" y="355" text-anchor="middle" fill="#A6ADCE" font-size="24">ready to ship?</text>
+      </g>
+    </svg>
+    <p class="fragment lift muted" style="font-size:28px;text-align:center">+ bonus: subagents, automation, and remote control from your phone</p>
+  </div>
+  <aside class="notes">Four clicks. This is the whole talk on one line. One app, one story: fix, see, scale, ship.</aside>
+</section>
+
+<section>
+  <div class="row" style="height:100%;align-items:center;gap:60px">
+    <div class="stack" style="flex:.9">
+      <p class="eyebrow rise">what changed since last year</p>
+      <h2 class="rise">Copilot stopped <span class="grad">suggesting</span>.<br>It started <span class="grad">doing</span>.</h2>
+      <p class="rise muted" style="font-size:30px">Agent mode runs a loop: it reads, acts, checks the result, and goes again until the job is done.</p>
+    </div>
+    <div style="flex:1.1">
+      <svg class="diagram" viewBox="0 0 640 560" aria-label="Agent loop: plan, act, observe">
+        <circle cx="320" cy="280" r="190" fill="none" stroke="#2B3260" stroke-width="2"/>
+        <circle cx="320" cy="280" r="190" fill="none" stroke="#4BE3AC" stroke-width="3" class="flow" opacity=".7"/>
+        <g class="orbit"><circle cx="320" cy="90" r="9" fill="#4BE3AC"/></g>
+        <circle cx="320" cy="280" r="78" fill="#151A31" stroke="#A394FF" stroke-width="2" class="pulse"/>
+        <text x="320" y="272" text-anchor="middle" fill="#EEF0FA" font-size="30" font-weight="700">Agent</text>
+        <text x="320" y="304" text-anchor="middle" fill="#A6ADCE" font-size="20">your goal</text>
+        <g class="fragment" data-fragment-index="1">
+          <rect x="230" y="40" width="180" height="70" rx="16" fill="#1C2242" stroke="#4BE3AC" stroke-width="2"/>
+          <text x="320" y="84" text-anchor="middle" fill="#EEF0FA" font-size="26" font-weight="600">1 · Read</text>
+        </g>
+        <g class="fragment" data-fragment-index="2">
+          <rect x="440" y="380" width="180" height="70" rx="16" fill="#1C2242" stroke="#FFC857" stroke-width="2"/>
+          <text x="530" y="424" text-anchor="middle" fill="#EEF0FA" font-size="26" font-weight="600">2 · Act</text>
+        </g>
+        <g class="fragment" data-fragment-index="3">
+          <rect x="20" y="380" width="180" height="70" rx="16" fill="#1C2242" stroke="#FF7E6B" stroke-width="2"/>
+          <text x="110" y="424" text-anchor="middle" fill="#EEF0FA" font-size="26" font-weight="600">3 · Check</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <aside class="notes">Click 3 times. Read files, act (edit, run commands), check (tests, browser). Then repeat. Our job today: shape that loop with rules, tools and recipes.</aside>
+</section>
+
+<section>
+  <div class="row" style="height:100%;align-items:center;gap:60px">
+    <div class="stack" style="flex:1">
+      <p class="eyebrow rise">our playground</p>
+      <h2 class="rise">TicketLab Lite</h2>
+      <p class="rise muted" style="font-size:30px">6 tickets in a JSON file. A search box. A filter. Node.js only.</p>
+      <div class="pane fragment lift" data-fragment-index="1" style="border-color:#FF7E6B"><h3><span style="color:var(--coral)">Bug 1</span> · search is case-sensitive</h3><p>“Login” finds 1. “LOGIN” finds 0. <b style="color:var(--text)">Tests catch it.</b></p></div>
+      <div class="pane fragment lift" data-fragment-index="2" style="border-color:#FFC857"><h3><span style="color:var(--amber)">Bug 2</span> · the counter lies</h3><p>High shows 2 cards, header says 6. <b style="color:var(--text)">Tests miss it.</b></p></div>
+    </div>
+    <div style="flex:.9;position:relative">
+      <div class="app rise">
+        <div class="top"><b>🎫 TicketLab</b><span class="count fragment" data-fragment-index="2" style="opacity:1">6 tickets</span></div>
+        <div class="tools"><span>LOGIN</span><span class="sel">High ▾</span></div>
+        <div class="card">#1 Login page is slow</div>
+        <div class="card">#2 Printer on floor 3 offline</div>
+      </div>
+      <p class="stamp fragment" data-fragment-index="2" style="position:absolute;right:-10px;top:-30px;color:var(--coral);background:var(--ink)">2 cards ≠ 6</p>
+    </div>
+  </div>
+  <aside class="notes">Show the real app for 20 seconds: type Login, then LOGIN. Pick High and point at the counter.</aside>
+</section>
+
+<section data-transition="zoom-in fade-out">
+  <div class="act">
+    <span class="num">01</span>
+    <p class="eyebrow" style="color:var(--mint)">act one · rules</p>
+    <h2>Teach it how your team works</h2>
+    <p class="muted" style="font-size:30px;max-width:1100px">Custom instructions: plain markdown files that tell Copilot how your project works.</p>
+  </div>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">custom instructions</p>
+    <h2 class="rise">Context you write once, Copilot reads every time</h2>
+    <svg class="diagram" viewBox="0 0 1600 520" aria-label="Your prompt plus instruction files are merged into the context the agent receives">
+      <g class="fragment" data-fragment-index="1">
+        <rect x="20" y="30" width="520" height="96" rx="18" fill="#151A31" stroke="#2B3260" stroke-width="2"/>
+        <text x="50" y="72" fill="#A6ADCE" font-family="JetBrains Mono, monospace" font-size="20">YOU TYPE</text>
+        <text x="50" y="108" fill="#EEF0FA" font-size="28" font-weight="600">“npm test is failing. Fix it.”</text>
+      </g>
+      <g class="fragment" data-fragment-index="2">
+        <rect x="20" y="150" width="520" height="96" rx="18" fill="#151A31" stroke="#4BE3AC" stroke-width="2"/>
+        <text x="50" y="192" fill="#4BE3AC" font-family="JetBrains Mono, monospace" font-size="20">ALWAYS · whole repo</text>
+        <text x="50" y="228" fill="#EEF0FA" font-size="28" font-weight="600">.github/copilot-instructions.md</text>
+        <rect x="20" y="270" width="520" height="96" rx="18" fill="#151A31" stroke="#A394FF" stroke-width="2"/>
+        <text x="50" y="312" fill="#A394FF" font-family="JetBrains Mono, monospace" font-size="20">ONLY MATCHING FILES · applyTo</text>
+        <text x="50" y="348" fill="#EEF0FA" font-size="28" font-weight="600">*.instructions.md  (e.g. **/*.test.js)</text>
+        <rect x="20" y="390" width="520" height="96" rx="18" fill="#151A31" stroke="#FFC857" stroke-width="2"/>
+        <text x="50" y="432" fill="#FFC857" font-family="JetBrains Mono, monospace" font-size="20">SHARED WITH OTHER AGENTS</text>
+        <text x="50" y="468" fill="#EEF0FA" font-size="28" font-weight="600">AGENTS.md</text>
+      </g>
+      <g class="fragment" data-fragment-index="3">
+        <path d="M540 78 C 700 78, 700 260, 820 260" fill="none" stroke="#6E77A3" stroke-width="3" class="flow"/>
+        <path d="M540 198 C 680 198, 700 260, 820 260" fill="none" stroke="#4BE3AC" stroke-width="3" class="flow"/>
+        <path d="M540 318 C 680 318, 700 260, 820 260" fill="none" stroke="#A394FF" stroke-width="3" class="flow"/>
+        <path d="M540 438 C 700 438, 700 260, 820 260" fill="none" stroke="#FFC857" stroke-width="3" class="flow"/>
+        <rect x="820" y="170" width="340" height="180" rx="24" fill="#1C2242" stroke="#EEF0FA" stroke-width="2"/>
+        <text x="990" y="250" text-anchor="middle" fill="#EEF0FA" font-size="34" font-weight="700">One context</text>
+        <text x="990" y="292" text-anchor="middle" fill="#A6ADCE" font-size="24">sent to the model</text>
+        <path d="M1160 260 H1260" stroke="#4BE3AC" stroke-width="4" class="flow"/>
+        <circle cx="1350" cy="260" r="90" fill="#151A31" stroke="#4BE3AC" stroke-width="3" class="pulse"/>
+        <text x="1350" y="252" text-anchor="middle" fill="#EEF0FA" font-size="28" font-weight="700">Agent</text>
+        <text x="1350" y="288" text-anchor="middle" fill="#A6ADCE" font-size="22">follows your rules</text>
+      </g>
+    </svg>
+  </div>
+  <aside class="notes">Three clicks. 1: what you type. 2: the files that get added for you. copilot-instructions.md is always added. *.instructions.md files only when the agent touches matching files (applyTo glob). AGENTS.md is a shared format other agents read too. 3: everything is merged into one context. Rule of thumb: write instructions like onboarding notes for a new colleague. Short, concrete, testable.</aside>
+</section>
+
+<section>
+  <div class="row" style="height:100%;align-items:center;gap:50px">
+    <div class="stack" style="flex:.8">
+      <p class="eyebrow rise">.github/copilot-instructions.md</p>
+      <h2 class="rise">House rules,<br>always on</h2>
+      <p class="rise muted" style="font-size:30px">No need to repeat yourself in every prompt. The repo carries the context.</p>
+    </div>
+    <div class="code rise" style="flex:1.2"><span class="c"># TicketLab Lite: how to work here</span>
+
+- Plain Node.js 22. <span class="hl fragment">No new npm packages.</span>
+- Data goes through <span class="d">store.js</span> only.
+- <span class="hl fragment">Run npm test before and after.</span>
+- <span class="hl fragment">Never weaken a test to pass.</span>
+- Keep changes small.
+- <span class="hl fragment">Finish with 3 bullets.</span></div>
+  </div>
+  <aside class="notes">Highlight each rule. Say: watch Copilot follow these without me repeating them.</aside>
+</section>
+
+<section data-background-transition="fade">
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow">demo 1 · agent mode</p>
+    <h2>Fix the failing tests</h2>
+    <div class="term">
+      <div class="bar"><i></i><i></i><i></i><span>terminal · ticketlab-lite</span></div>
+      <pre><span class="c">$</span> npm test
+<span class="g">✔ returns all 6 tickets</span>
+<span class="g">✔ filters by priority</span>
+<span class="r">✖ search is case-insensitive: 'Login' finds both</span>
+<span class="r">✖ search 'LOGIN' returns the same tickets as 'login'</span>
+<span class="c"># pass 3 · fail 2</span></pre>
+    </div>
+    <div class="term fragment lift">
+      <div class="bar"><i></i><i></i><i></i><span>copilot chat · agent</span></div>
+      <pre><span class="v">❯</span> <span class="cursor">npm test is failing. Find out why and fix it.</span></pre>
+    </div>
+  </div>
+  <aside class="notes">Switch to VS Code. Agent mode. Paste the prompt. Point at: it runs npm test itself, reads store.js, lowercases both sides, reruns: 5 pass, answers in 3 bullets. Then commit: git commit -am "Fix search". Fallback: git checkout checkpoint/1-search</aside>
+</section>
+
+<section data-transition="zoom-in fade-out">
+  <div class="act">
+    <span class="num">02</span>
+    <p class="eyebrow" style="color:var(--violet)">act two · tools</p>
+    <h2>Tests are green.<br>The bug is still there.</h2>
+    <p class="muted" style="font-size:30px;max-width:1100px">The agent needs eyes on the page and hands on our systems. That is MCP.</p>
+  </div>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">the problem mcp solves</p>
+    <h2 class="rise">Every AI app × every tool = a mess</h2>
+    <div class="row" style="align-items:center;gap:40px">
+      <svg class="diagram" viewBox="0 0 700 460" aria-label="Without MCP: every app needs a custom connector to every tool">
+        <g font-size="24" fill="#EEF0FA" font-weight="600">
+          <rect x="10" y="40" width="190" height="70" rx="14" fill="#151A31" stroke="#2B3260" stroke-width="2"/><text x="105" y="84" text-anchor="middle">Copilot</text>
+          <rect x="10" y="190" width="190" height="70" rx="14" fill="#151A31" stroke="#2B3260" stroke-width="2"/><text x="105" y="234" text-anchor="middle">Claude</text>
+          <rect x="10" y="340" width="190" height="70" rx="14" fill="#151A31" stroke="#2B3260" stroke-width="2"/><text x="105" y="384" text-anchor="middle">Your agent</text>
+          <rect x="500" y="20" width="190" height="64" rx="14" fill="#151A31" stroke="#2B3260" stroke-width="2"/><text x="595" y="61" text-anchor="middle">GitHub</text>
+          <rect x="500" y="130" width="190" height="64" rx="14" fill="#151A31" stroke="#2B3260" stroke-width="2"/><text x="595" y="171" text-anchor="middle">Jira</text>
+          <rect x="500" y="240" width="190" height="64" rx="14" fill="#151A31" stroke="#2B3260" stroke-width="2"/><text x="595" y="281" text-anchor="middle">Database</text>
+          <rect x="500" y="350" width="190" height="64" rx="14" fill="#151A31" stroke="#2B3260" stroke-width="2"/><text x="595" y="391" text-anchor="middle">Browser</text>
+        </g>
+        <g stroke="#FF7E6B" stroke-width="2" opacity=".75" fill="none">
+          <path d="M200 75 L500 52"/><path d="M200 75 L500 162"/><path d="M200 75 L500 272"/><path d="M200 75 L500 382"/>
+          <path d="M200 225 L500 52"/><path d="M200 225 L500 162"/><path d="M200 225 L500 272"/><path d="M200 225 L500 382"/>
+          <path d="M200 375 L500 52"/><path d="M200 375 L500 162"/><path d="M200 375 L500 272"/><path d="M200 375 L500 382"/>
+        </g>
+        <text x="350" y="452" text-anchor="middle" fill="#FF7E6B" font-family="JetBrains Mono, monospace" font-size="22">3 × 4 = 12 custom connectors</text>
+      </svg>
+      <svg class="diagram fragment lift" viewBox="0 0 700 460" aria-label="With MCP: every app speaks MCP, every tool ships one MCP server">
+        <g font-size="24" fill="#EEF0FA" font-weight="600">
+          <rect x="10" y="40" width="190" height="70" rx="14" fill="#151A31" stroke="#2B3260" stroke-width="2"/><text x="105" y="84" text-anchor="middle">Copilot</text>
+          <rect x="10" y="190" width="190" height="70" rx="14" fill="#151A31" stroke="#2B3260" stroke-width="2"/><text x="105" y="234" text-anchor="middle">Claude</text>
+          <rect x="10" y="340" width="190" height="70" rx="14" fill="#151A31" stroke="#2B3260" stroke-width="2"/><text x="105" y="384" text-anchor="middle">Your agent</text>
+          <rect x="500" y="20" width="190" height="64" rx="14" fill="#151A31" stroke="#2B3260" stroke-width="2"/><text x="595" y="61" text-anchor="middle">GitHub</text>
+          <rect x="500" y="130" width="190" height="64" rx="14" fill="#151A31" stroke="#2B3260" stroke-width="2"/><text x="595" y="171" text-anchor="middle">Jira</text>
+          <rect x="500" y="240" width="190" height="64" rx="14" fill="#151A31" stroke="#2B3260" stroke-width="2"/><text x="595" y="281" text-anchor="middle">Database</text>
+          <rect x="500" y="350" width="190" height="64" rx="14" fill="#151A31" stroke="#2B3260" stroke-width="2"/><text x="595" y="391" text-anchor="middle">Browser</text>
+        </g>
+        <g stroke="#4BE3AC" stroke-width="3" fill="none" class="flow">
+          <path d="M200 75 L300 215"/><path d="M200 225 L300 225"/><path d="M200 375 L300 235"/>
+          <path d="M400 215 L500 52"/><path d="M400 220 L500 162"/><path d="M400 230 L500 272"/><path d="M400 235 L500 382"/>
+        </g>
+        <circle cx="350" cy="225" r="58" fill="#1C2242" stroke="#4BE3AC" stroke-width="3" class="pulse"/>
+        <text x="350" y="235" text-anchor="middle" fill="#4BE3AC" font-size="30" font-weight="800">MCP</text>
+        <text x="350" y="452" text-anchor="middle" fill="#4BE3AC" font-family="JetBrains Mono, monospace" font-size="22">3 + 4 = one standard</text>
+      </svg>
+    </div>
+  </div>
+  <aside class="notes">Before MCP: every AI app builds its own connector to every tool. N times M. With MCP: apps speak one protocol, each tool ships one server. N plus M. Same idea as USB-C or the Language Server Protocol. Build your ServiceNow MCP once, every agent can use it.</aside>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">model context protocol</p>
+    <h2 class="rise">One plug, many tools</h2>
+    <svg class="diagram" viewBox="0 0 1600 560" aria-label="VS Code host with two MCP clients connecting to Playwright and TicketLab servers">
+      <!-- host -->
+      <rect x="30" y="60" width="540" height="440" rx="26" fill="#151A31" stroke="#2B3260" stroke-width="2"/>
+      <text x="70" y="115" fill="#A6ADCE" font-family="JetBrains Mono, monospace" font-size="22">HOST</text>
+      <text x="70" y="160" fill="#EEF0FA" font-size="40" font-weight="700">VS Code + Copilot</text>
+      <circle cx="160" cy="320" r="62" fill="#1C2242" stroke="#A394FF" stroke-width="2" class="pulse"/>
+      <text x="160" y="330" text-anchor="middle" fill="#EEF0FA" font-size="28" font-weight="700">Agent</text>
+      <g class="fragment" data-fragment-index="1">
+        <rect x="330" y="200" width="200" height="80" rx="16" fill="#1C2242" stroke="#4BE3AC" stroke-width="2"/>
+        <text x="430" y="248" text-anchor="middle" fill="#EEF0FA" font-size="24">MCP client</text>
+        <rect x="330" y="360" width="200" height="80" rx="16" fill="#1C2242" stroke="#4BE3AC" stroke-width="2"/>
+        <text x="430" y="408" text-anchor="middle" fill="#EEF0FA" font-size="24">MCP client</text>
+        <path d="M222 305 L330 240" stroke="#4BE3AC" stroke-width="2"/>
+        <path d="M222 335 L330 400" stroke="#4BE3AC" stroke-width="2"/>
+      </g>
+      <g class="fragment" data-fragment-index="2">
+        <path id="p1" d="M530 240 C 700 240, 760 150, 940 150" fill="none" stroke="#4BE3AC" stroke-width="3" class="flow"/>
+        <path id="p2" d="M530 400 C 700 400, 760 410, 940 410" fill="none" stroke="#4BE3AC" stroke-width="3" class="flow"/>
+        <rect x="940" y="70" width="380" height="160" rx="22" fill="#151A31" stroke="#A394FF" stroke-width="2"/>
+        <text x="975" y="118" fill="#A6ADCE" font-family="JetBrains Mono, monospace" font-size="20">SERVER · eyes</text>
+        <text x="975" y="165" fill="#EEF0FA" font-size="34" font-weight="700">Playwright</text>
+        <text x="975" y="205" fill="#A6ADCE" font-size="22">a real browser</text>
+        <rect x="940" y="330" width="380" height="160" rx="22" fill="#151A31" stroke="#FF7E6B" stroke-width="2"/>
+        <text x="975" y="378" fill="#A6ADCE" font-family="JetBrains Mono, monospace" font-size="20">SERVER · hands</text>
+        <text x="975" y="425" fill="#EEF0FA" font-size="34" font-weight="700">ticketlab</text>
+        <text x="975" y="465" fill="#A6ADCE" font-size="22">our 40-line server</text>
+      </g>
+      <g class="fragment" data-fragment-index="3">
+        <text x="1360" y="110" fill="#4BE3AC" font-family="JetBrains Mono, monospace" font-size="22">navigate</text>
+        <text x="1360" y="150" fill="#4BE3AC" font-family="JetBrains Mono, monospace" font-size="22">select_option</text>
+        <text x="1360" y="190" fill="#4BE3AC" font-family="JetBrains Mono, monospace" font-size="22">snapshot</text>
+        <text x="1360" y="370" fill="#FF7E6B" font-family="JetBrains Mono, monospace" font-size="22">list_tickets</text>
+        <text x="1360" y="410" fill="#FF7E6B" font-family="JetBrains Mono, monospace" font-size="22">get_ticket</text>
+        <text x="1360" y="450" fill="#FF7E6B" font-family="JetBrains Mono, monospace" font-size="22">create_ticket</text>
+      </g>
+    </svg>
+  </div>
+  <aside class="notes">Click 1: inside the host, one client per server connection. A client is a connector, not another AI. Click 2: two servers, one standard. Click 3: each server exposes tools. Think USB-C for AI.</aside>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">one tool call, step by step</p>
+    <h2 class="rise">You stay in the loop</h2>
+    <svg class="diagram" viewBox="0 0 1600 500" aria-label="Sequence: you ask, agent picks a tool, you approve, server answers">
+      <g fill="#A6ADCE" font-family="JetBrains Mono, monospace" font-size="22" text-anchor="middle">
+        <text x="200" y="40">YOU</text><text x="600" y="40">AGENT</text><text x="1000" y="40">VS CODE</text><text x="1400" y="40">MCP SERVER</text>
+      </g>
+      <g stroke="#2B3260" stroke-width="2" stroke-dasharray="4 8"><path d="M200 60 V480"/><path d="M600 60 V480"/><path d="M1000 60 V480"/><path d="M1400 60 V480"/></g>
+      <g class="fragment" data-fragment-index="1">
+        <path d="M200 120 H585" stroke="#4BE3AC" stroke-width="3" marker-end="url(#ar)"/>
+        <text x="390" y="105" text-anchor="middle" fill="#EEF0FA" font-size="24">“Which high tickets are open?”</text>
+      </g>
+      <g class="fragment" data-fragment-index="2">
+        <path d="M600 210 H985" stroke="#A394FF" stroke-width="3" marker-end="url(#ar2)"/>
+        <text x="800" y="195" text-anchor="middle" fill="#EEF0FA" font-size="24">picks list_tickets(priority: high)</text>
+      </g>
+      <g class="fragment" data-fragment-index="3">
+        <rect x="860" y="250" width="280" height="64" rx="14" fill="#FFC857"/>
+        <text x="1000" y="292" text-anchor="middle" fill="#14182B" font-size="24" font-weight="700">Allow? ✓</text>
+      </g>
+      <g class="fragment" data-fragment-index="4">
+        <path d="M1000 360 H1385" stroke="#FF7E6B" stroke-width="3" marker-end="url(#ar3)"/>
+        <path d="M1400 420 H615" stroke="#4BE3AC" stroke-width="3" class="flow"/>
+        <text x="1000" y="460" text-anchor="middle" fill="#EEF0FA" font-size="24">JSON result becomes context for the answer</text>
+      </g>
+      <defs>
+        <marker id="ar" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12z" fill="#4BE3AC"/></marker>
+        <marker id="ar2" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12z" fill="#A394FF"/></marker>
+        <marker id="ar3" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12z" fill="#FF7E6B"/></marker>
+      </defs>
+    </svg>
+  </div>
+  <aside class="notes">Four clicks. The important one is the yellow box: VS Code asks you before a tool runs. MCP does not make tools safe by itself; permissions and review do.</aside>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">playwright mcp · the eyes</p>
+    <h2 class="rise">A real browser the agent can drive</h2>
+    <div class="row" style="align-items:center;gap:36px">
+      <div class="stack" style="flex:.75;gap:16px">
+        <div class="term fragment lift" data-fragment-index="1">
+          <div class="bar"><i></i><i></i><i></i><span>tool calls</span></div>
+          <pre style="font-size:23px"><span class="g">browser_navigate</span>  localhost:3000
+<span class="g">browser_select_option</span>  High
+<span class="g">browser_snapshot</span>
+<span class="g">browser_take_screenshot</span></pre>
+        </div>
+        <p class="fragment lift muted" data-fragment-index="3" style="font-size:27px">It reads the <b style="color:var(--text)">accessibility tree</b>: text and roles, not pixels. Fast, cheap and precise.</p>
+      </div>
+      <svg class="diagram fragment lift" data-fragment-index="2" viewBox="0 0 900 520" style="flex:1.25" aria-label="Browser window with the app and its accessibility snapshot">
+        <rect x="0" y="0" width="900" height="520" rx="20" fill="#F3F4FA"/>
+        <rect x="0" y="0" width="900" height="52" rx="20" fill="#DCE0EE"/><rect x="0" y="30" width="900" height="22" fill="#DCE0EE"/>
+        <circle cx="30" cy="26" r="8" fill="#FF7E6B"/><circle cx="56" cy="26" r="8" fill="#FFC857"/><circle cx="82" cy="26" r="8" fill="#4BE3AC"/>
+        <rect x="120" y="12" width="330" height="28" rx="14" fill="#FFFFFF"/><text x="140" y="33" fill="#596080" font-size="18" font-family="JetBrains Mono, monospace">localhost:3000</text>
+        <text x="30" y="105" fill="#1A1F36" font-size="28" font-weight="700">TicketLab</text>
+        <rect x="290" y="80" width="140" height="36" rx="8" fill="#FFE1DC"/><text x="360" y="105" text-anchor="middle" fill="#B4321F" font-size="22" font-weight="700">6 tickets</text>
+        <rect x="30" y="135" width="400" height="44" rx="8" fill="#FFFFFF" stroke="#CBD1E4"/><text x="48" y="164" fill="#1A1F36" font-size="20" font-weight="600">High ▾</text>
+        <rect x="30" y="195" width="400" height="56" rx="8" fill="#FFFFFF"/><rect x="30" y="195" width="6" height="56" fill="#E5484D"/><text x="52" y="230" fill="#1A1F36" font-size="20">#1 Login page is slow</text>
+        <rect x="30" y="265" width="400" height="56" rx="8" fill="#FFFFFF"/><rect x="30" y="265" width="6" height="56" fill="#E5484D"/><text x="52" y="300" fill="#1A1F36" font-size="20">#2 Printer on floor 3 offline</text>
+        <rect x="470" y="70" width="410" height="430" rx="14" fill="#0C0F1E"/>
+        <text x="490" y="105" fill="#6E77A3" font-size="18" font-family="JetBrains Mono, monospace">snapshot (what the agent sees)</text>
+        <g font-family="JetBrains Mono, monospace" font-size="19" fill="#EEF0FA">
+          <text x="490" y="150">- heading "TicketLab"</text>
+          <text x="490" y="185" fill="#FF7E6B">- paragraph: "6 tickets"</text>
+          <text x="490" y="220">- combobox "Priority":</text>
+          <text x="520" y="250" fill="#4BE3AC">"High" [selected]</text>
+          <text x="490" y="285">- list:</text>
+          <text x="520" y="315" fill="#4BE3AC">- listitem "#1 Login…"</text>
+          <text x="520" y="345" fill="#4BE3AC">- listitem "#2 Printer…"</text>
+          <text x="490" y="410" fill="#FFC857">2 items ≠ "6 tickets"</text>
+          <text x="490" y="440" fill="#FFC857">→ bug found</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <aside class="notes">Playwright MCP is Microsoft's MCP server around Playwright. The agent opens a real browser and gets tools like navigate, click, type, select, snapshot, screenshot. Key point: the snapshot is the accessibility tree, structured text. The agent compares 2 list items with "6 tickets" and finds the bug our tests could not see.</aside>
+</section>
+
+<section>
+  <div class="row" style="height:100%;align-items:center;gap:50px">
+    <div class="code rise" style="flex:1.3"><span class="k">server</span>.tool(
+  <span class="hl fragment" data-fragment-index="1"><span class="s">"create_ticket"</span></span>,
+  <span class="hl fragment" data-fragment-index="2"><span class="d">"Create a new open ticket."</span></span>,
+  <span class="hl fragment" data-fragment-index="3">{ title: z.string(), priority: … }</span>,
+  <span class="hl fragment" data-fragment-index="4">async (args) =&gt; addTicket(args)</span>
+);</div>
+    <div class="stack" style="flex:.9">
+      <p class="eyebrow rise">mcp/ticket-server.js</p>
+      <h2 class="rise">A tool is 4 things</h2>
+      <div class="list-num">
+        <div class="fragment lift" data-fragment-index="1"><span class="n">01</span><span>A name</span></div>
+        <div class="fragment lift" data-fragment-index="2"><span class="n">02</span><span>A description <span class="muted">(the AI reads it)</span></span></div>
+        <div class="fragment lift" data-fragment-index="3"><span class="n">03</span><span>An input schema</span></div>
+        <div class="fragment lift" data-fragment-index="4"><span class="n">04</span><span>A function</span></div>
+      </div>
+      <p class="fragment lift muted" style="font-size:28px">Swap the function for Jira, ServiceNow or your API.</p>
+    </div>
+  </div>
+  <aside class="notes">Open the real file and scroll. The description is how the agent decides which tool to use, so write it like documentation for a colleague.</aside>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow">demo 2 · mcp</p>
+    <h2>Eyes, then hands</h2>
+    <div class="row">
+      <div class="term">
+        <div class="bar"><i></i><i></i><i></i><span>eyes · playwright</span></div>
+        <pre><span class="v">❯</span> Use Playwright MCP to open
+  localhost:3000, select High,
+  count the cards and compare
+  with the header counter.
+  <span class="y">Just report. Don’t fix it.</span></pre>
+      </div>
+      <div class="term fragment lift">
+        <div class="bar"><i></i><i></i><i></i><span>hands · ticketlab</span></div>
+        <pre><span class="v">❯</span> Which high priority
+  tickets are still open?
+
+<span class="v">❯</span> Create a ticket for the
+  counter bug you just found.</pre>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">npm start first. Playwright opens a real browser, reports 2 cards vs "6 tickets". We do NOT fix it here: we just filed it. Then the ticketlab server: list, then create ticket #7. Refresh the app: #7 is there. Bonus if time: /triage prompt file.</aside>
+</section>
+
+<section data-transition="zoom-in fade-out">
+  <div class="act">
+    <span class="num">03</span>
+    <p class="eyebrow" style="color:var(--amber)">act three · parallel agents</p>
+    <h2>One agent is good.<br>Two is a team.</h2>
+    <p class="muted" style="font-size:30px;max-width:1150px">Two independent tasks: fix the counter, and build a new <span class="kbd">close_ticket</span> tool. First, the trick that makes it safe: git worktrees.</p>
+  </div>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">before the demo · what is a git worktree?</p>
+    <h2 class="rise">One repository, several folders, each on its own branch</h2>
+    <div class="row" style="align-items:center;gap:40px">
+      <div class="stack" style="flex:.8;gap:18px">
+        <div class="pane fragment lift" data-fragment-index="1" style="border-color:#FF7E6B"><h3>git checkout</h3><p>One folder. Switching branch replaces the files under your feet. Two agents here = they overwrite each other.</p></div>
+        <div class="pane fragment lift" data-fragment-index="2" style="border-color:#4BE3AC"><h3>git worktree</h3><p>Extra folders that share the same history. Each one has its own branch, files and running app.</p></div>
+      </div>
+      <svg class="diagram" viewBox="0 0 860 520" style="flex:1.2" aria-label="One .git history shared by three working folders">
+        <circle cx="430" cy="110" r="76" fill="#1C2242" stroke="#A394FF" stroke-width="3" class="pulse"/>
+        <text x="430" y="104" text-anchor="middle" fill="#EEF0FA" font-size="30" font-weight="700">.git</text>
+        <text x="430" y="138" text-anchor="middle" fill="#A6ADCE" font-size="20">one history</text>
+        <g class="fragment" data-fragment-index="2">
+          <path d="M380 170 L150 330" stroke="#4BE3AC" stroke-width="3" class="flow"/>
+          <path d="M430 186 L430 330" stroke="#FFC857" stroke-width="3" class="flow"/>
+          <path d="M480 170 L710 330" stroke="#A394FF" stroke-width="3" class="flow"/>
+          <rect x="20" y="330" width="260" height="150" rx="18" fill="#151A31" stroke="#4BE3AC" stroke-width="2"/>
+          <text x="45" y="375" fill="#4BE3AC" font-family="JetBrains Mono, monospace" font-size="19">ticketlab-lite/</text>
+          <text x="45" y="418" fill="#EEF0FA" font-size="26" font-weight="700">main</text>
+          <text x="45" y="455" fill="#A6ADCE" font-size="20">you · port 3000</text>
+          <rect x="300" y="330" width="260" height="150" rx="18" fill="#151A31" stroke="#FFC857" stroke-width="2"/>
+          <text x="325" y="375" fill="#FFC857" font-family="JetBrains Mono, monospace" font-size="19">worktree 1/</text>
+          <text x="325" y="418" fill="#EEF0FA" font-size="26" font-weight="700">agent/counter</text>
+          <text x="325" y="455" fill="#A6ADCE" font-size="20">agent A · port 3001</text>
+          <rect x="580" y="330" width="260" height="150" rx="18" fill="#151A31" stroke="#A394FF" stroke-width="2"/>
+          <text x="605" y="375" fill="#A394FF" font-family="JetBrains Mono, monospace" font-size="19">worktree 2/</text>
+          <text x="605" y="418" fill="#EEF0FA" font-size="26" font-weight="700">agent/close-tool</text>
+          <text x="605" y="455" fill="#A6ADCE" font-size="20">agent B</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <aside class="notes">Click 1: the problem. With a normal checkout, two agents in one folder step on each other. Click 2: worktree. The command is git worktree add ../folder -b branch. All folders share one .git, so commits from one are visible from the others and merging is normal git. Cheap to create, cheap to delete.</aside>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">worktree use cases</p>
+    <h2 class="rise">Not only for AI agents</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div class="pane fragment lift"><p class="kbd">01</p><h3>Parallel agents</h3><p>One task per worktree, no collisions. Today’s demo.</p></div>
+      <div class="pane fragment lift"><p class="kbd">02</p><h3>Urgent hotfix</h3><p>Fix prod on main while your feature stays half-done. No stash.</p></div>
+      <div class="pane fragment lift"><p class="kbd">03</p><h3>Review a PR</h3><p>Check it out and run it next to your own work.</p></div>
+      <div class="pane fragment lift"><p class="kbd">04</p><h3>Long runs</h3><p>Build or test one branch while you keep coding on another.</p></div>
+      <div class="pane fragment lift"><p class="kbd">05</p><h3>Compare versions</h3><p>Old and new app side by side, on two ports.</p></div>
+      <div class="pane fragment lift" style="border-color:#FFC857"><p class="kbd" style="color:var(--amber)">!</p><h3>Watch out</h3><p>New worktree = committed files only. Run npm install, copy .env, use another port.</p></div>
+    </div>
+  </div>
+  <aside class="notes">Six clicks. The last card matters for the demo: a new worktree has no node_modules and no .env. Our instructions file tells the agent to run npm install if node_modules is missing.</aside>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">git worktree</p>
+    <h2 class="rise">Two folders, one repo, no collisions</h2>
+    <svg class="diagram" viewBox="0 0 1600 520" aria-label="Main branch splits into two worktrees, each with its own agent, then merges back">
+      <path d="M60 260 H1540" stroke="#2B3260" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="140" cy="260" r="20" fill="#4BE3AC"/>
+      <text x="140" y="320" text-anchor="middle" fill="#A6ADCE" font-size="22">main</text>
+      <circle cx="380" cy="260" r="20" fill="#4BE3AC"/>
+      <text x="380" y="320" text-anchor="middle" fill="#A6ADCE" font-size="22">search fixed</text>
+      <g class="fragment" data-fragment-index="1">
+        <path d="M380 260 C 470 260, 470 110, 600 110 H1080 C 1210 110, 1210 260, 1300 260" fill="none" stroke="#FFC857" stroke-width="5" class="flow"/>
+        <rect x="610" y="50" width="460" height="120" rx="20" fill="#151A31" stroke="#FFC857" stroke-width="2"/>
+        <text x="640" y="95" fill="#FFC857" font-family="JetBrains Mono, monospace" font-size="20">worktree 1 · port 3001</text>
+        <text x="640" y="140" fill="#EEF0FA" font-size="30" font-weight="700">Agent A · fix the counter</text>
+      </g>
+      <g class="fragment" data-fragment-index="2">
+        <path d="M380 260 C 470 260, 470 410, 600 410 H1080 C 1210 410, 1210 260, 1300 260" fill="none" stroke="#A394FF" stroke-width="5" class="flow"/>
+        <rect x="610" y="350" width="460" height="120" rx="20" fill="#151A31" stroke="#A394FF" stroke-width="2"/>
+        <text x="640" y="395" fill="#A394FF" font-family="JetBrains Mono, monospace" font-size="20">worktree 2 · its own folder</text>
+        <text x="640" y="440" fill="#EEF0FA" font-size="30" font-weight="700">Agent B · build close_ticket</text>
+      </g>
+      <g class="fragment" data-fragment-index="3">
+        <circle cx="1300" cy="260" r="30" fill="#FF7E6B" class="pulse"/>
+        <text x="1300" y="335" text-anchor="middle" fill="#EEF0FA" font-size="24" font-weight="700">you review + merge</text>
+      </g>
+    </svg>
+  </div>
+  <aside class="notes">The Agents window creates these worktrees for you (fallback: npm run parallel). Separate folders, separate branches, separate ports. They touch different files: app.js vs ticket-server.js. You are the reviewer now, not the typist.</aside>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">vs code agents window</p>
+    <h2 class="rise">One window. Every session gets its own worktree.</h2>
+    <div class="row" style="align-items:stretch;gap:30px">
+      <div class="term rise" style="flex:1.5">
+        <div class="bar"><i></i><i></i><i></i><span>Agents · ticketlab-lite</span></div>
+        <div style="display:flex;min-height:430px">
+          <div style="width:250px;border-right:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:12px;font-size:21px">
+            <p class="mono" style="color:var(--dim);font-size:17px">SESSIONS</p>
+            <p style="background:var(--panel-2);border-radius:10px;padding:10px 12px"><span style="color:var(--amber)">●</span> Fix counter</p>
+            <p style="background:var(--panel-2);border-radius:10px;padding:10px 12px"><span style="color:var(--violet)">●</span> close_ticket tool</p>
+            <p style="color:var(--dim);padding:10px 12px">+ New (Ctrl+N)</p>
+          </div>
+          <div style="flex:1;padding:18px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:12px;font-size:21px">
+            <p class="mono" style="color:var(--amber);font-size:17px">⎇ worktree · agent/counter</p>
+            <p class="muted">▸ npm install</p><p class="muted">▸ browser_snapshot</p><p class="muted">▸ edit public/app.js</p>
+            <p style="color:var(--mint)">✔ High → 2 tickets</p>
+          </div>
+          <div style="flex:1;padding:18px;display:flex;flex-direction:column;gap:12px;font-size:21px">
+            <p class="mono" style="color:var(--violet);font-size:17px">⎇ worktree · agent/close-tool</p>
+            <p class="muted">▸ npm install</p><p class="muted">▸ read store.js</p><p class="muted">▸ edit ticket-server.js</p>
+            <p style="color:var(--mint)">✔ tool added</p>
+          </div>
+        </div>
+      </div>
+      <div class="list-num" style="flex:1;font-size:28px;justify-content:center">
+        <div class="fragment lift"><span class="n">1</span><span><b>Ctrl+N</b> · pick the repo</span></div>
+        <div class="fragment lift"><span class="n">2</span><span>Tick <b>New Worktree</b></span></div>
+        <div class="fragment lift"><span class="n">3</span><span><b>Alt+Enter</b> sends it to the background</span></div>
+        <div class="fragment lift"><span class="n">4</span><span><b>Open to the Side</b> to watch both</span></div>
+        <div class="fragment lift"><span class="n">5</span><span><b>Changes</b> view → review → commit</span></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Open it with Chat: Open Agents window, or code --agents. No extra VS Code windows, no script. Note: worktree sessions run with Allow all, so no approval prompts. The isolation is what makes that acceptable, and you still review every diff. Fallback if the Agents window misbehaves: npm run parallel and two VS Code windows.</aside>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow">demo 3 · agents window</p>
+    <h2>Two sessions, two worktrees, Alt+Enter</h2>
+    <div class="row">
+      <div class="term">
+        <div class="bar"><i></i><i></i><i></i><span style="color:var(--amber)">session A · New Worktree</span></div>
+        <pre><span class="v">❯</span> Start the app with PORT=3001.
+  Use the Playwright MCP to
+  check the counter on High,
+  then fix it in public/app.js
+  only.</pre>
+      </div>
+      <div class="term">
+        <div class="bar"><i></i><i></i><i></i><span style="color:var(--violet)">session B · New Worktree</span></div>
+        <pre><span class="v">❯</span> Add an MCP tool "close_ticket"
+  to mcp/ticket-server.js. It
+  takes an id and closes the
+  ticket via store.js. Same
+  style as the other tools.</pre>
+      </div>
+    </div>
+    <div class="term fragment lift">
+      <div class="bar"><i></i><i></i><i></i><span>terminal · main</span></div>
+      <pre><span class="c">$</span> git merge &lt;branch-A&gt; &lt;branch-B&gt;   <span class="g"># after reviewing both diffs</span></pre>
+    </div>
+  </div>
+  <aside class="notes">Commit the Act 1 fix first (worktrees only get committed files). Ctrl+N, New Worktree, prompt A, Alt+Enter. Same for B. Open to the Side. While they run: they share nothing but the laptop. Review in the Changes view, Commit Changes in each session. In main: git merge the two branches (names shown in each session), then restart the ticketlab MCP server and say "Close ticket 3". Fallback: git merge checkpoint/2-counter checkpoint/3-close-tool</aside>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">subagents</p>
+    <h2 class="rise">An agent that delegates to specialists</h2>
+    <div class="row" style="align-items:center;gap:40px">
+      <svg class="diagram" viewBox="0 0 980 520" style="flex:1.3" aria-label="Main agent sends tasks to a Reviewer and a Tester subagent, each with its own context, and gets short summaries back">
+        <rect x="330" y="20" width="320" height="110" rx="22" fill="#1C2242" stroke="#EEF0FA" stroke-width="2"/>
+        <text x="490" y="68" text-anchor="middle" fill="#EEF0FA" font-size="30" font-weight="700">Main agent</text>
+        <text x="490" y="104" text-anchor="middle" fill="#A6ADCE" font-size="21">your conversation</text>
+        <g class="fragment" data-fragment-index="1">
+          <path d="M420 130 C 420 220, 220 200, 220 290" fill="none" stroke="#4BE3AC" stroke-width="3" class="flow"/>
+          <rect x="40" y="290" width="360" height="190" rx="22" fill="#151A31" stroke="#4BE3AC" stroke-width="2"/>
+          <text x="70" y="335" fill="#4BE3AC" font-family="JetBrains Mono, monospace" font-size="19">reviewer.agent.md</text>
+          <text x="70" y="378" fill="#EEF0FA" font-size="28" font-weight="700">Reviewer</text>
+          <text x="70" y="415" fill="#A6ADCE" font-size="21">read-only · own context</text>
+          <text x="70" y="448" fill="#A6ADCE" font-size="21">correctness + scope</text>
+        </g>
+        <g class="fragment" data-fragment-index="2">
+          <path d="M560 130 C 560 220, 760 200, 760 290" fill="none" stroke="#A394FF" stroke-width="3" class="flow"/>
+          <rect x="580" y="290" width="360" height="190" rx="22" fill="#151A31" stroke="#A394FF" stroke-width="2"/>
+          <text x="610" y="335" fill="#A394FF" font-family="JetBrains Mono, monospace" font-size="19">tester.agent.md</text>
+          <text x="610" y="378" fill="#EEF0FA" font-size="28" font-weight="700">Tester</text>
+          <text x="610" y="415" fill="#A6ADCE" font-size="21">read-only · own context</text>
+          <text x="610" y="448" fill="#A6ADCE" font-size="21">missing test cases</text>
+        </g>
+        <g class="fragment" data-fragment-index="3">
+          <rect x="400" y="190" width="180" height="56" rx="28" fill="#FFC857"/>
+          <text x="490" y="226" text-anchor="middle" fill="#14182B" font-size="22" font-weight="700">5-line summaries</text>
+        </g>
+      </svg>
+      <div class="stack" style="flex:.8;gap:18px">
+        <p class="fragment lift" data-fragment-index="3" style="font-size:30px">Each subagent works in a <b>fresh, isolated context</b> and returns only the result.</p>
+        <p class="fragment lift muted" data-fragment-index="4" style="font-size:27px">Your main chat stays small. Specialists can use a different model and fewer tools.</p>
+        <p class="fragment lift kbd" data-fragment-index="4">.github/agents/*.agent.md</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Subagents run inside one session, not in parallel worktrees. Worktrees isolate files; subagents isolate context. A custom agent is a markdown file with a name, description and tool list. Our two are read-only: tools read and search. Make sure Run Subagent is enabled in Configure Tools.</aside>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow">mini demo · subagents · 2 min</p>
+    <h2>Two reviewers, one prompt</h2>
+    <div class="row" style="align-items:stretch">
+      <div class="code" style="flex:1;font-size:22px"><span class="c">---</span>
+<span class="k">name</span>: <span class="s">Reviewer</span>
+<span class="k">description</span>: <span class="d">Reviews a diff for</span>
+  <span class="d">correctness and scope.</span>
+<span class="k">tools</span>: [<span class="s">'read'</span>, <span class="s">'search'</span>]
+<span class="c">---</span>
+Do not edit files. Check
+correctness, scope, tests.
+At most 5 bullets.</div>
+      <div class="term" style="flex:1.2">
+        <div class="bar"><i></i><i></i><i></i><span>copilot chat · agent · main</span></div>
+        <pre><span class="v">❯</span> Run the Reviewer and the
+  Tester subagents on the diff
+  since workshop-start.
+  Combine their findings in
+  one short table.</pre>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Run this in main after the merge. Point at the two subagent calls collapsing in the chat, and the short table at the end. If time is short, skip this slide.</aside>
+</section>
+
+<section data-transition="zoom-in fade-out">
+  <div class="act">
+    <span class="num">04</span>
+    <p class="eyebrow" style="color:var(--coral)">act four · recipes</p>
+    <h2>Package the routine<br>as a skill</h2>
+    <p class="muted" style="font-size:30px;max-width:1100px">A folder with a SKILL.md. Loaded only when your request needs it.</p>
+  </div>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">what is a skill?</p>
+    <h2 class="rise">A folder that teaches the agent a routine</h2>
+    <div class="row" style="align-items:center;gap:40px">
+      <div class="code rise" style="flex:.85;font-size:24px"><span class="c">.github/skills/</span>
+└─ <span class="s">release-check/</span>
+   ├─ <span class="d">SKILL.md</span>     <span class="c">← recipe</span>
+   └─ scripts/       <span class="c">← optional</span>
+
+<span class="c">---</span>
+<span class="k">name</span>: release-check
+<span class="k">description</span>: Run the
+  checklist and write a report.
+  Use when asked if it’s
+  ready to ship.
+<span class="c">---</span>
+1. npm run release-check
+2. Read release-report.md
+3. Don’t fix silently</div>
+      <table class="fragment lift" style="flex:1.15;font-size:24px;color:#EEF0FA;border-collapse:collapse;width:100%">
+        <tr style="color:var(--dim);font-family:var(--mono);font-size:19px"><td style="padding:10px">TYPE</td><td style="padding:10px">LOADED</td><td style="padding:10px">GOOD FOR</td></tr>
+        <tr style="border-top:1px solid var(--line)"><td style="padding:12px;color:var(--mint)">Instructions</td><td style="padding:12px">always</td><td style="padding:12px;color:var(--muted)">team rules</td></tr>
+        <tr style="border-top:1px solid var(--line)"><td style="padding:12px;color:var(--amber)">Prompt file</td><td style="padding:12px">when you type /name</td><td style="padding:12px;color:var(--muted)">a reusable prompt</td></tr>
+        <tr style="border-top:1px solid var(--line)"><td style="padding:12px;color:var(--coral)">Skill</td><td style="padding:12px">when the task matches</td><td style="padding:12px;color:var(--muted)">a routine + scripts</td></tr>
+        <tr style="border-top:1px solid var(--line)"><td style="padding:12px;color:var(--violet)">Custom agent</td><td style="padding:12px">when you pick it</td><td style="padding:12px;color:var(--muted)">a role with its own tools</td></tr>
+        <tr style="border-top:1px solid var(--line)"><td style="padding:12px;color:#7FD4FF">MCP server</td><td style="padding:12px">when a tool is needed</td><td style="padding:12px;color:var(--muted)">access to a system</td></tr>
+      </table>
+    </div>
+  </div>
+  <aside class="notes">The table is the cheat sheet of the whole talk. Skills are an open standard: the same folder works in VS Code, Copilot CLI and the cloud agent. The description is the trigger, so write it as "use when...".</aside>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">how a skill loads · think of a cookbook</p>
+    <h2 class="rise">Copilot reads the index, then opens one recipe</h2>
+    <svg class="diagram" viewBox="0 0 1600 500" aria-label="Cookbook analogy: Copilot always sees the index of skills, opens the matching recipe when you ask, then runs its script">
+      <g class="fragment" data-fragment-index="1">
+        <rect x="20" y="40" width="440" height="400" rx="24" fill="#151A31" stroke="#4BE3AC" stroke-width="2"/>
+        <text x="50" y="92" fill="#4BE3AC" font-family="JetBrains Mono, monospace" font-size="20">1 · THE INDEX · always visible</text>
+        <text x="50" y="142" fill="#EEF0FA" font-size="30" font-weight="700">📖 Skills index</text>
+        <rect x="50" y="170" width="380" height="74" rx="12" fill="#1C2242" stroke="#4BE3AC" stroke-width="2"/>
+        <text x="70" y="202" fill="#EEF0FA" font-size="22" font-weight="600">release-check</text>
+        <text x="70" y="230" fill="#A6ADCE" font-size="19">“use when asked: ready to ship?”</text>
+        <rect x="50" y="256" width="380" height="74" rx="12" fill="#1C2242"/>
+        <text x="70" y="288" fill="#6E77A3" font-size="22">write-changelog</text>
+        <text x="70" y="316" fill="#6E77A3" font-size="19">“use when asked for release notes”</text>
+        <rect x="50" y="342" width="380" height="74" rx="12" fill="#1C2242"/>
+        <text x="70" y="374" fill="#6E77A3" font-size="22">db-migration</text>
+        <text x="70" y="402" fill="#6E77A3" font-size="19">“use when the schema changes”</text>
+      </g>
+      <g class="fragment" data-fragment-index="2">
+        <rect x="560" y="40" width="300" height="90" rx="45" fill="#FFC857"/>
+        <text x="710" y="95" text-anchor="middle" fill="#14182B" font-size="26" font-weight="700">“Ready to ship?”</text>
+        <path d="M430 207 C 520 207, 560 280, 600 280" fill="none" stroke="#FFC857" stroke-width="4" class="flow"/>
+        <text x="710" y="200" text-anchor="middle" fill="#FFC857" font-size="24" font-weight="700">✔ match!</text>
+        <rect x="600" y="230" width="380" height="210" rx="22" fill="#151A31" stroke="#A394FF" stroke-width="2"/>
+        <text x="630" y="275" fill="#A394FF" font-family="JetBrains Mono, monospace" font-size="20">2 · OPEN THE RECIPE</text>
+        <text x="630" y="320" fill="#EEF0FA" font-size="28" font-weight="700">📄 SKILL.md</text>
+        <text x="630" y="362" fill="#A6ADCE" font-size="21">1. run the checks</text>
+        <text x="630" y="392" fill="#A6ADCE" font-size="21">2. read the report</text>
+        <text x="630" y="422" fill="#A6ADCE" font-size="21">3. draft the PR</text>
+      </g>
+      <g class="fragment" data-fragment-index="3">
+        <path d="M980 335 H1080" stroke="#FF7E6B" stroke-width="4" class="flow"/>
+        <rect x="1080" y="230" width="500" height="210" rx="22" fill="#151A31" stroke="#FF7E6B" stroke-width="2"/>
+        <text x="1110" y="275" fill="#FF7E6B" font-family="JetBrains Mono, monospace" font-size="20">3 · COOK · use the tools</text>
+        <text x="1110" y="320" fill="#EEF0FA" font-size="28" font-weight="700">⚙ npm run release-check</text>
+        <text x="1110" y="362" fill="#A6ADCE" font-size="21">→ release-report.md</text>
+        <text x="1110" y="392" fill="#4BE3AC" font-size="21">✅ 5 passed · ready to ship 🚀</text>
+      </g>
+      <g class="fragment" data-fragment-index="4">
+        <text x="1330" y="95" text-anchor="middle" fill="#EEF0FA" font-size="26" font-weight="700">Why it matters</text>
+        <text x="1330" y="135" text-anchor="middle" fill="#A6ADCE" font-size="22">100 skills cost almost nothing</text>
+        <text x="1330" y="165" text-anchor="middle" fill="#A6ADCE" font-size="22">until one is needed</text>
+      </g>
+    </svg>
+  </div>
+  <aside class="notes">Analogy: a cookbook. 1: Copilot only knows the index, one line per skill. 2: when your request matches a line, it opens that recipe page. The other skills stay closed. 3: it follows the recipe and uses the tools in it, like the release-check script. 4: that is why you can have many skills without filling the context.</aside>
+</section>
+
+<section>
+  <div class="row" style="height:100%;align-items:center;gap:50px">
+    <div class="stack" style="flex:.9">
+      <p class="eyebrow">demo 4 · skill</p>
+      <h2>Five words</h2>
+      <div class="term">
+        <div class="bar"><i></i><i></i><i></i><span>copilot chat · agent</span></div>
+        <pre><span class="v">❯</span> <span class="cursor">Is this ready to ship?</span></pre>
+      </div>
+    </div>
+    <div class="term fragment lift" style="flex:1.1">
+      <div class="bar"><i></i><i></i><i></i><span>release-report.md</span></div>
+      <pre><span class="y"># Release report</span>
+
+<span class="g">✅ Tests: 5 passed, 0 failed</span>
+<span class="g">✅ Smoke: home 200, API 7 tickets</span>
+
+<b>Verdict: ready to ship 🚀</b>
+
+<span class="c">PR: Fix search + counter,
+add close_ticket MCP tool</span></pre>
+    </div>
+  </div>
+  <aside class="notes">Copilot picks release-check by itself, runs the script, reads the report, drafts the PR text. Twist if time: break a test, ask again: NOT ready, and it explains instead of fixing. Fallback: "Use the release-check skill."</aside>
+</section>
+
+<section data-transition="zoom-in fade-out">
+  <div class="act">
+    <span class="num">+</span>
+    <p class="eyebrow" style="color:#7FD4FF">bonus · beyond the editor</p>
+    <h2>Automation and remote control</h2>
+    <p class="muted" style="font-size:30px;max-width:1150px">Agents that run on a schedule, and a session you can steer from your phone.</p>
+  </div>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">automation</p>
+    <h2 class="rise">From “I ask” to “it runs”</h2>
+    <svg class="diagram" viewBox="0 0 1600 470" aria-label="Three levels of automation: VS Code automations, agentic workflows in GitHub Actions, and the cloud agent">
+      <path d="M60 400 L1540 120" stroke="#2B3260" stroke-width="4"/>
+      <path d="M60 400 L1540 120" stroke="#7FD4FF" stroke-width="4" class="flow"/>
+      <g class="fragment" data-fragment-index="1">
+        <circle cx="300" cy="355" r="18" fill="#4BE3AC"/>
+        <rect x="80" y="40" width="440" height="230" rx="22" fill="#151A31" stroke="#4BE3AC" stroke-width="2"/>
+        <text x="110" y="88" fill="#4BE3AC" font-family="JetBrains Mono, monospace" font-size="20">ON YOUR LAPTOP · preview</text>
+        <text x="110" y="138" fill="#EEF0FA" font-size="32" font-weight="700">Agents window</text>
+        <text x="110" y="175" fill="#EEF0FA" font-size="32" font-weight="700">Automations</text>
+        <text x="110" y="222" fill="#A6ADCE" font-size="22">manual or scheduled prompts</text>
+        <text x="110" y="252" fill="#A6ADCE" font-size="22">“every morning: triage tickets”</text>
+      </g>
+      <g class="fragment" data-fragment-index="2">
+        <circle cx="800" cy="260" r="18" fill="#FFC857"/>
+        <rect x="580" y="300" width="440" height="160" rx="22" fill="#151A31" stroke="#FFC857" stroke-width="2"/>
+        <text x="610" y="345" fill="#FFC857" font-family="JetBrains Mono, monospace" font-size="20">IN GITHUB ACTIONS</text>
+        <text x="610" y="392" fill="#EEF0FA" font-size="32" font-weight="700">Agentic workflows</text>
+        <text x="610" y="432" fill="#A6ADCE" font-size="22">a markdown file + triggers</text>
+      </g>
+      <g class="fragment" data-fragment-index="3">
+        <circle cx="1300" cy="165" r="18" fill="#FF7E6B"/>
+        <rect x="1080" y="230" width="460" height="200" rx="22" fill="#151A31" stroke="#FF7E6B" stroke-width="2"/>
+        <text x="1110" y="275" fill="#FF7E6B" font-family="JetBrains Mono, monospace" font-size="20">IN THE CLOUD</text>
+        <text x="1110" y="322" fill="#EEF0FA" font-size="32" font-weight="700">Copilot cloud agent</text>
+        <text x="1110" y="362" fill="#A6ADCE" font-size="22">assign an issue or /delegate</text>
+        <text x="1110" y="394" fill="#A6ADCE" font-size="22">→ it opens a pull request</text>
+      </g>
+    </svg>
+  </div>
+  <aside class="notes">Three levels, from close to far. 1: Automations in the Agents window (preview, setting chat.automations.enabled): reusable prompts, manual or on a schedule. 2: Agentic workflows in GitHub Actions: describe the job in markdown, frontmatter sets triggers and permissions. 3: Cloud agent: assign an issue or type /delegate, it works on GitHub's machines and returns a PR. Same instructions, skills and MCP config everywhere.</aside>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">remote control</p>
+    <h2 class="rise">Start on the laptop, steer from your phone</h2>
+    <svg class="diagram" viewBox="0 0 1600 470" aria-label="A Copilot CLI session on the laptop is linked through GitHub to the GitHub Mobile app">
+      <rect x="40" y="70" width="520" height="320" rx="22" fill="#151A31" stroke="#A394FF" stroke-width="2"/>
+      <rect x="40" y="70" width="520" height="50" rx="22" fill="#1C2242"/><rect x="40" y="100" width="520" height="20" fill="#1C2242"/>
+      <text x="70" y="104" fill="#A6ADCE" font-family="JetBrains Mono, monospace" font-size="20">VS Code · Copilot CLI session</text>
+      <text x="70" y="180" fill="#A394FF" font-family="JetBrains Mono, monospace" font-size="26">❯ /remote on</text>
+      <text x="70" y="230" fill="#4BE3AC" font-family="JetBrains Mono, monospace" font-size="22">✔ remote control enabled</text>
+      <text x="70" y="270" fill="#A6ADCE" font-family="JetBrains Mono, monospace" font-size="22">task page created on GitHub</text>
+      <rect x="70" y="300" width="160" height="56" rx="12" fill="#A394FF"/><text x="150" y="337" text-anchor="middle" fill="#14182B" font-size="24" font-weight="700">Open</text>
+      <g class="fragment" data-fragment-index="1">
+        <path d="M560 230 H760" stroke="#A394FF" stroke-width="4" class="flow"/>
+        <circle cx="850" cy="230" r="90" fill="#1C2242" stroke="#EEF0FA" stroke-width="2" class="pulse"/>
+        <text x="850" y="222" text-anchor="middle" fill="#EEF0FA" font-size="30" font-weight="700">GitHub</text>
+        <text x="850" y="258" text-anchor="middle" fill="#A6ADCE" font-size="20">Agents tab</text>
+        <path d="M940 230 H1140" stroke="#4BE3AC" stroke-width="4" class="flow"/>
+      </g>
+      <g class="fragment" data-fragment-index="2">
+        <rect x="1180" y="20" width="250" height="430" rx="36" fill="#0C0F1E" stroke="#EEF0FA" stroke-width="3"/>
+        <rect x="1255" y="36" width="100" height="10" rx="5" fill="#2B3260"/>
+        <text x="1305" y="95" text-anchor="middle" fill="#A6ADCE" font-size="18">GitHub Mobile</text>
+        <rect x="1200" y="115" width="210" height="64" rx="12" fill="#151A31"/><text x="1215" y="155" fill="#4BE3AC" font-size="19">● Session running</text>
+        <rect x="1200" y="190" width="210" height="90" rx="12" fill="#151A31"/><text x="1215" y="225" fill="#EEF0FA" font-size="18">Allow running</text><text x="1215" y="255" fill="#EEF0FA" font-size="18">npm test?</text>
+        <rect x="1200" y="290" width="100" height="48" rx="10" fill="#4BE3AC"/><text x="1250" y="322" text-anchor="middle" fill="#14182B" font-size="19" font-weight="700">Allow</text>
+        <rect x="1310" y="290" width="100" height="48" rx="10" fill="#2B3260"/><text x="1360" y="322" text-anchor="middle" fill="#EEF0FA" font-size="19">Deny</text>
+        <rect x="1200" y="360" width="210" height="56" rx="28" fill="#151A31" stroke="#2B3260"/><text x="1220" y="395" fill="#6E77A3" font-size="18">Steer the agent…</text>
+      </g>
+    </svg>
+  </div>
+  <aside class="notes">Remote control for Copilot CLI sessions is generally available. Watch progress, approve or deny tool calls, answer questions and send the next instruction from your phone or github.com. Business/Enterprise: an admin must enable the policy first.</aside>
+</section>
+
+<section>
+  <div class="row" style="height:100%;align-items:center;gap:50px">
+    <div class="stack" style="flex:1">
+      <p class="eyebrow">finale · remote control from vs code</p>
+      <h2>Let the agent finish while we talk</h2>
+      <div class="list-num" style="font-size:28px">
+        <div class="fragment lift"><span class="n">1</span><span>Setting: <span class="kbd">github.copilot.chat.cli.remote.enabled</span></span></div>
+        <div class="fragment lift"><span class="n">2</span><span>Chat view → new <b>Copilot CLI</b> session</span></div>
+        <div class="fragment lift"><span class="n">3</span><span>Type <span class="kbd">/remote on</span> → <b>Open</b> on GitHub</span></div>
+        <div class="fragment lift"><span class="n">4</span><span>Phone: GitHub Mobile → repo → <b>Agents</b> tab</span></div>
+      </div>
+    </div>
+    <div class="term fragment lift" style="flex:1">
+      <div class="bar"><i></i><i></i><i></i><span>copilot cli session · remote</span></div>
+      <pre><span class="v">❯</span> Add a "Close" button to each
+  open ticket in the web UI,
+  using the API. Then run the
+  release-check skill.
+
+<span class="c"># …and I answer from my phone</span>
+<span class="c"># during the Q&amp;A</span></pre>
+    </div>
+  </div>
+  <aside class="notes">Optional finale. Start this before Q&A, put the phone under the document camera or mirror it. Approve npm test from the phone. From the terminal instead: copilot --remote, or /remote on inside a session. Use /keep-alive for long runs. If the policy is blocked on your account, show the slide and skip the live part.</aside>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">what we covered</p>
+    <h2 class="rise">Same app. Four superpowers.</h2>
+    <div class="row rise" style="margin-top:10px">
+      <div class="pane" style="border-top:4px solid var(--mint)"><h3>Rules</h3><p>copilot-instructions.md</p></div>
+      <div class="pane" style="border-top:4px solid var(--violet)"><h3>Tools</h3><p>.vscode/mcp.json + 40-line server</p></div>
+      <div class="pane" style="border-top:4px solid var(--amber)"><h3>Parallel</h3><p>git worktree + 2 windows</p></div>
+      <div class="pane" style="border-top:4px solid var(--coral)"><h3>Recipes</h3><p>.github/skills/</p></div>
+      <div class="pane" style="border-top:4px solid #7FD4FF"><h3>Beyond</h3><p>subagents · automations · remote</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="row" style="height:100%;align-items:center;gap:60px">
+    <div class="stack" style="flex:.9">
+      <p class="eyebrow rise">before you try this at work</p>
+      <h2 class="rise">Keep a human on the merge button</h2>
+    </div>
+    <div class="list-num" style="flex:1.1;font-size:32px">
+      <div class="fragment lift"><span class="n">→</span><span>Approve tool calls. Start with <b>read-only</b> MCP servers.</span></div>
+      <div class="fragment lift"><span class="n">→</span><span>Review third-party servers like any dependency.</span></div>
+      <div class="fragment lift"><span class="n">→</span><span>Tests are the contract. Agents must not edit them.</span></div>
+      <div class="fragment lift"><span class="n">→</span><span>Worktree sessions run with “Allow all”: isolation first.</span></div>
+      <div class="fragment lift"><span class="n">→</span><span>Read every diff before you commit.</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">next week</p>
+    <h2 class="rise">Start small</h2>
+    <div class="list-num" style="font-size:40px;margin-top:10px">
+      <div class="fragment lift"><span class="n">01</span><span>Write <b>one</b> instructions file</span></div>
+      <div class="fragment lift"><span class="n">02</span><span>Plug in <b>one</b> MCP server</span></div>
+      <div class="fragment lift"><span class="n">03</span><span>Split <b>one</b> task across two agents</span></div>
+      <div class="fragment lift"><span class="n">04</span><span>Turn <b>one</b> routine into a skill</span></div>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <div class="stack" style="height:100%;justify-content:center;gap:40px">
+    <p class="bigq grad rise">Questions?</p>
+    <p class="rise" style="font-size:34px">Try it yourself: <span class="kbd">[github.com/____/ticketlab-lite]</span></p>
+    <div class="chips rise">
+      <span class="chip">achrafbenalaya.com</span>
+      <span class="chip">linkedin.com/in/achrafbenalaya</span>
+      <span class="chip">@achrafbenalaya</span>
+    </div>
+  </div>
+  <aside class="notes">Ask: which routine in your team would you turn into a skill first?</aside>
+</section>
+
+<section>
+  <div class="stack" style="height:100%;justify-content:center">
+    <p class="eyebrow rise">appendix</p>
+    <h2 class="rise">Go further</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:27px" class="rise">
+      <p>VS Code · <a href="https://code.visualstudio.com/docs/copilot/customization/custom-instructions">Custom instructions</a></p>
+      <p>VS Code · <a href="https://code.visualstudio.com/docs/copilot/chat/mcp-servers">MCP servers</a></p>
+      <p>VS Code · <a href="https://code.visualstudio.com/docs/agents/run/agents-window">Agents window</a></p>
+      <p>VS Code · <a href="https://code.visualstudio.com/docs/agents/run/subagents">Subagents</a></p>
+      <p>VS Code · <a href="https://code.visualstudio.com/docs/copilot/customization/agent-skills">Agent Skills</a></p>
+      <p><a href="https://github.com/microsoft/playwright-mcp">Playwright MCP</a> · <a href="https://modelcontextprotocol.io">modelcontextprotocol.io</a></p>
+      <p>GitHub · <a href="https://github.blog/changelog/2026-05-18-remote-control-for-copilot-cli-sessions-now-generally-available-on-mobile-web-and-vs-code/">Remote control</a></p>
+      <p>Pamela Fox · <a href="https://pamelafox.github.io/parallelize-development-github-copilot/">Parallel development</a></p>
+    </div>
+  </div>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/notes/notes.min.js"></script>
+<script>
+Reveal.initialize({
+  hash: true, width: 1920, height: 1080, margin: 0.06,
+  transition: 'slide', backgroundTransition: 'fade',
+  controls: true, progress: true, slideNumber: 'c/t', center: false,
+  plugins: typeof RevealNotes !== 'undefined' ? [RevealNotes] : []
+});
+</script>
+
+<script>
+(function(){
+  const drawer=document.getElementById('drawer'),scrim=document.getElementById('scrim'),btn=document.getElementById('menuBtn'),list=document.getElementById('slideList');
+  const slides=[...document.querySelectorAll('.reveal .slides > section')];
+  slides.forEach((s,i)=>{
+    const hEl=s.querySelector('h1,h2,.bigq');let t=s.dataset.title;if(!t&&hEl){const c=hEl.cloneNode(true);c.querySelectorAll('br').forEach(br=>br.replaceWith(' '));t=c.textContent;}t=t||('Slide '+(i+1));
+    const li=document.createElement('li'); if(s.querySelector('.act')) li.className='divider';
+    const b=document.createElement('button'); b.innerHTML='<span class="dot"></span><span></span>'; b.lastChild.textContent=t.replace(/\s+/g,' ').trim();
+    b.onclick=()=>{Reveal.slide(i);toggle(false)}; li.appendChild(b); list.appendChild(li);
+  });
+  function mark(){const h=Reveal.getIndices().h;[...list.children].forEach((li,i)=>{li.classList.toggle('current',i===h);li.classList.toggle('seen',i<h)});}
+  function toggle(open){drawer.classList.toggle('open',open);scrim.classList.toggle('open',open);btn.setAttribute('aria-expanded',open);if(open){mark();const c=list.querySelector('.current');c&&c.scrollIntoView({block:'center'});}}
+  btn.onclick=()=>toggle(!drawer.classList.contains('open'));
+  scrim.onclick=()=>toggle(false); document.getElementById('closeDrawer').onclick=()=>toggle(false);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drawer.classList.contains('open')){toggle(false);e.stopPropagation();}},true);
+  Reveal.addKeyBinding({keyCode:76,key:'L',description:'List of slides'},()=>toggle(!drawer.classList.contains('open')));
+  Reveal.on('slidechanged',mark); Reveal.on('ready',mark);
+})();
+</script>

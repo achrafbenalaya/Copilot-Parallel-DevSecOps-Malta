@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TicketLab Lite</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎫 TicketLab Lite</h1>
+    <p id="count">Loading…</p>
+  </header>
+  <section class="toolbar">
+    <input id="search" placeholder="Search tickets…" aria-label="Search" />
+    <select id="priority" aria-label="Priority">
+      <option value="all">All priorities</option>
+      <option value="high">High</option>
+      <option value="normal">Normal</option>
+      <option value="low">Low</option>
+    </select>
+  </section>
+  <ul id="list"></ul>
+  <script src="/app.js"></script>
+</body>
+</html>
