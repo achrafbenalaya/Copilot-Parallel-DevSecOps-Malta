@@ -3,7 +3,7 @@
 A tiny ticket app (Node.js only, no framework, no cloud) built to practise:
 **Copilot agent mode · custom instructions · MCP servers · Agent Skills**.
 
-📊 **Presentation:** [Copilot Workshop Deck](Copilot-Workshop_Deck_v3.html)
+📊 **Presentation:** [Hands-On with GitHub Copilot](https://achrafbenalaya.github.io/Copilot-Parallel-DevSecOps-Malta/Copilot-Workshop_Deck_v3)
 
 ## Setup (2 minutes)
 
